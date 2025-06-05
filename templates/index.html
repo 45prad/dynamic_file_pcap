@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Network Forensics</title>
+  <title>challenge</title>
+  <style>
+    #download-status {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #222;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      z-index: 1000;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+    }
+  </style>
 </head>
 <body>
-  <h2>Network Forensics</h2>
+  <h2>Challenge</h2>
+
+  <!-- Flag Section (Optional Use) -->
   <div id="challengeSection" style="display:none;">
     <div id="flagDisplay"></div>
   </div>
 
-  <!-- Include both scripts -->
+  <!-- Download Status -->
+  <div id="download-status">Downloading file...</div>
+
+  <!-- Script Includes -->
   <script src="/static/auth.js"></script>
+  
 </body>
 </html>

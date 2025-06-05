@@ -1,0 +1,12 @@
+﻿# Approved domains for automated tools
+office365.com
+microsoft.com
+windows.com
+azure.com
+amazonaws.com
+cloudflare.com
+github.com
+gitlab.com
+jenkins.internal
+monitor.internal
+asset-scan.internal

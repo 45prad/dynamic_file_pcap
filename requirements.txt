@@ -1,0 +1,5 @@
+Flask
+flask-cors
+requests
+pandas
+scapy

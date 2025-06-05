@@ -1,0 +1,19 @@
+﻿{
+  "alert_id": "AI-DNS-2024-1067",
+  "timestamp": "2024-11-15T09:42:18Z",
+  "source_ip": "10.30.50.125",
+  "destination_servers": ["8.8.8.8", "1.1.1.1", "208.67.222.222"],
+  "confidence_score": 0.67,
+  "detection_threshold": 0.65,
+  "primary_domain": "sys-inventory.cloudops.net",
+  "anomaly_metrics": {
+    "query_frequency_score": 0.43,
+    "subdomain_entropy": 0.89,
+    "temporal_pattern": 0.72,
+    "domain_reputation": 0.31
+  },
+  "model_version": "DNS-Anomaly-v3.4.2",
+  "training_baseline": "corporate_networks_q1_2024",
+  "similar_patterns_detected": 23,
+  "recommended_action": "manual_investigation"
+}
