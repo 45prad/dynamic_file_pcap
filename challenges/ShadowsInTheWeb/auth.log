@@ -1,0 +1,824 @@
+Jun  4 00:15:10 vcm1 sudo: pam_unix(sudo:session): session closed for user root
+Jun  4 00:15:41 vcm1 sudo: ubuntu : TTY=pts/0 ; PWD=/home/ctf ; USER=root ; COMMAND=./run_challenge.sh
+Jun  4 00:15:41 vcm1 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Jun  4 00:15:41 vcm1 sshd: Failed password for user4 from 192.168.1.68 port 9091 ssh2
+Jun  4 00:15:41 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 00:15:41 vcm1 sshd: session closed for user user5
+Jun  4 00:15:41 vcm1 sshd: Accepted password for user6 from 10.0.0.74 port 6858 ssh2
+Jun  4 00:15:41 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 00:15:41 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:41 vcm1 sshd: Failed password for user8 from 192.168.1.99 port 23233 ssh2
+Jun  4 00:15:41 vcm1 sshd: session closed for user user6
+Jun  4 00:15:41 vcm1 sshd: Failed password for user1 from 192.168.1.56 port 24726 ssh2
+Jun  4 00:15:41 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 00:15:41 vcm1 sshd: Failed password for user5 from 192.168.1.75 port 3086 ssh2
+Jun  4 00:15:41 ubuntu sshd[34567]: Accepted password for h7j83jdik from 203.0.113.77 port 12345 ssh2
+Jun  4 00:15:41 ubuntu sudo: h7j83jdik : TTY=pts/0 ; PWD=/home/h7j83jdik ; USER=root ; COMMAND=/usr/bin/id
+Jun  4 00:15:41 ubuntu sudo: pam_unix(sudo:session): session opened for user root by (h7j83jdik)(uid=1001)
+Jun  4 00:15:41 vcm1 sshd: Accepted password for user8 from 10.0.0.4 port 12226 ssh2
+Jun  4 00:15:41 vcm1 sshd: Accepted password for user8 from 10.0.0.1 port 6337 ssh2
+Jun  4 00:15:41 vcm1 sshd: Failed password for user7 from 192.168.1.99 port 31706 ssh2
+Jun  4 00:15:41 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 00:15:41 vcm1 sshd: Accepted password for user1 from 10.0.0.71 port 28000 ssh2
+Jun  4 00:15:41 vcm1 sshd: session closed for user user6
+Jun  4 00:15:41 vcm1 sshd: Accepted password for user8 from 10.0.0.26 port 11750 ssh2
+Jun  4 00:15:41 vcm1 sshd: Failed password for user5 from 192.168.1.37 port 18542 ssh2
+Jun  4 00:15:41 vcm1 sshd: Failed password for user4 from 192.168.1.24 port 7417 ssh2
+Jun  4 00:15:41 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 00:15:41 vcm1 sshd: Accepted password for user3 from 10.0.0.85 port 27804 ssh2
+Jun  4 00:15:41 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 00:15:41 vcm1 sshd: Failed password for user8 from 192.168.1.77 port 10158 ssh2
+Jun  4 00:15:41 vcm1 sudo: user2 : TTY=pts/1 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:41 vcm1 sshd: Accepted password for user6 from 10.0.0.70 port 10659 ssh2
+Jun  4 00:15:42 vcm1 sshd: Failed password for user7 from 192.168.1.1 port 20891 ssh2
+Jun  4 00:15:42 vcm1 sshd: session closed for user user8
+Jun  4 00:15:42 vcm1 sshd: session closed for user user3
+Jun  4 00:15:42 vcm1 sshd: Accepted password for user6 from 10.0.0.78 port 13326 ssh2
+Jun  4 00:15:42 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:42 vcm1 sshd: session closed for user user2
+Jun  4 00:15:42 vcm1 sshd: Failed password for user1 from 192.168.1.12 port 7911 ssh2
+Jun  4 00:15:42 vcm1 sshd: session closed for user user5
+Jun  4 00:15:42 vcm1 sshd: session closed for user user5
+Jun  4 00:15:42 vcm1 sshd: Failed password for user4 from 192.168.1.16 port 18605 ssh2
+Jun  4 00:15:42 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:42 vcm1 sudo: user2 : TTY=pts/0 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:42 vcm1 sshd: Accepted password for user6 from 10.0.0.77 port 14032 ssh2
+Jun  4 00:15:42 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 00:15:42 vcm1 sshd: session closed for user user5
+Jun  4 00:15:42 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 00:15:42 vcm1 sshd: Accepted password for user7 from 10.0.0.33 port 10307 ssh2
+Jun  4 00:15:42 vcm1 sshd: session opened for user user6 by (uid=0)
+Jun  4 00:15:42 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 00:15:42 vcm1 sudo: user1 : TTY=pts/0 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:42 vcm1 sshd: session closed for user user2
+Jun  4 00:15:42 vcm1 sshd: Accepted password for user2 from 10.0.0.59 port 7279 ssh2
+Jun  4 00:15:42 vcm1 sshd: session closed for user user2
+Jun  4 00:15:42 vcm1 sshd: Accepted password for user4 from 10.0.0.91 port 23494 ssh2
+Jun  4 00:15:42 vcm1 sshd: Failed password for user4 from 192.168.1.99 port 25031 ssh2
+Jun  4 00:15:42 vcm1 sshd: session closed for user user7
+Jun  4 00:15:42 vcm1 sshd: Accepted password for user8 from 10.0.0.79 port 7420 ssh2
+Jun  4 00:15:42 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 00:15:42 vcm1 sshd: Failed password for user6 from 192.168.1.58 port 4746 ssh2
+Jun  4 00:15:43 vcm1 sshd: Accepted password for user5 from 10.0.0.85 port 23550 ssh2
+Jun  4 00:15:43 vcm1 sshd: Accepted password for user8 from 10.0.0.48 port 8074 ssh2
+Jun  4 00:15:43 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 00:15:43 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 00:15:43 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 00:15:43 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 00:15:43 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 00:15:43 vcm1 sshd: session closed for user user6
+Jun  4 00:15:43 vcm1 sshd: session closed for user user8
+Jun  4 00:15:43 vcm1 sshd: Accepted password for user1 from 10.0.0.8 port 29965 ssh2
+Jun  4 00:15:43 vcm1 sshd: session closed for user user2
+Jun  4 00:15:43 vcm1 sshd: session closed for user user7
+Jun  4 00:15:43 vcm1 sshd: Accepted password for user1 from 10.0.0.1 port 13118 ssh2
+Jun  4 00:15:43 vcm1 sshd: Failed password for user3 from 192.168.1.15 port 21017 ssh2
+Jun  4 00:15:43 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:43 vcm1 sshd: Failed password for user1 from 192.168.1.34 port 23102 ssh2
+Jun  4 00:15:43 vcm1 sshd: session closed for user user8
+Jun  4 00:15:43 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:43 vcm1 sshd: session closed for user user3
+Jun  4 00:15:43 vcm1 sudo: user1 : TTY=pts/1 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:43 vcm1 sshd: Failed password for user5 from 192.168.1.82 port 17399 ssh2
+Jun  4 00:15:43 vcm1 sshd: session closed for user user1
+Jun  4 00:15:43 vcm1 sshd: Accepted password for user6 from 10.0.0.7 port 4624 ssh2
+Jun  4 00:15:43 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 00:15:43 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 00:15:43 vcm1 sudo: user2 : TTY=pts/0 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:43 vcm1 sshd: Failed password for user4 from 192.168.1.15 port 21904 ssh2
+Jun  4 00:15:43 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:43 vcm1 sshd: Failed password for user7 from 192.168.1.51 port 25067 ssh2
+Jun  4 00:15:44 vcm1 sshd: Failed password for user2 from 192.168.1.48 port 11855 ssh2
+Jun  4 00:15:44 vcm1 sshd: Failed password for user2 from 192.168.1.78 port 13661 ssh2
+Jun  4 00:15:44 vcm1 sshd: Failed password for user5 from 192.168.1.76 port 21528 ssh2
+Jun  4 00:15:44 vcm1 sshd: Failed password for user7 from 192.168.1.67 port 20260 ssh2
+Jun  4 00:15:44 vcm1 sshd: Failed password for user7 from 192.168.1.45 port 28372 ssh2
+Jun  4 00:15:44 vcm1 sudo: user4 : TTY=pts/0 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:44 vcm1 sshd: session closed for user user8
+Jun  4 00:15:44 vcm1 sshd: Accepted password for user4 from 10.0.0.36 port 27674 ssh2
+Jun  4 00:15:44 vcm1 sudo: user2 : TTY=pts/1 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:44 vcm1 sshd: Failed password for user7 from 192.168.1.34 port 7637 ssh2
+Jun  4 00:15:44 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:44 vcm1 sshd: Failed password for user5 from 192.168.1.46 port 1097 ssh2
+Jun  4 00:15:44 vcm1 sshd: Failed password for user5 from 192.168.1.99 port 11428 ssh2
+Jun  4 00:15:44 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:44 vcm1 sshd: Accepted password for user8 from 10.0.0.37 port 25521 ssh2
+Jun  4 00:15:44 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 00:15:44 vcm1 sshd: Failed password for user5 from 192.168.1.17 port 23068 ssh2
+Jun  4 00:15:44 vcm1 sshd: Accepted password for user8 from 10.0.0.53 port 7938 ssh2
+Jun  4 00:15:44 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:44 vcm1 sudo: user2 : TTY=pts/1 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:44 vcm1 sshd: session closed for user user3
+Jun  4 00:15:44 vcm1 sshd: session opened for user user6 by (uid=0)
+Jun  4 00:15:44 vcm1 sshd: Failed password for user5 from 192.168.1.23 port 7527 ssh2
+Jun  4 00:15:44 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:44 vcm1 sshd: Failed password for user8 from 192.168.1.17 port 22329 ssh2
+Jun  4 00:15:44 vcm1 sshd: session closed for user user1
+Jun  4 00:15:44 vcm1 sshd: session closed for user user8
+Jun  4 00:15:44 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:44 vcm1 sshd: session opened for user user6 by (uid=0)
+Jun  4 00:15:45 vcm1 sshd: Failed password for user5 from 192.168.1.60 port 7526 ssh2
+Jun  4 00:15:45 vcm1 sudo: user2 : TTY=pts/1 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:45 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 00:15:45 vcm1 sshd: Failed password for user1 from 192.168.1.63 port 28485 ssh2
+Jun  4 00:15:45 vcm1 sshd: session opened for user user6 by (uid=0)
+Jun  4 00:15:45 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 00:15:45 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 00:15:45 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:45 vcm1 sshd: Accepted password for user4 from 10.0.0.18 port 32430 ssh2
+Jun  4 00:15:45 vcm1 sudo: user4 : TTY=pts/0 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:45 vcm1 sshd: Failed password for user4 from 192.168.1.44 port 9324 ssh2
+Jun  4 00:15:45 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:45 vcm1 sshd: session closed for user user5
+Jun  4 00:15:45 vcm1 sshd: session closed for user user2
+Jun  4 00:15:45 vcm1 sudo: user1 : TTY=pts/0 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:45 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:45 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 00:15:45 vcm1 sudo: user2 : TTY=pts/0 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:45 vcm1 sshd: session closed for user user2
+Jun  4 00:15:45 vcm1 sshd: Accepted password for user1 from 10.0.0.9 port 25046 ssh2
+Jun  4 00:15:45 vcm1 sshd: Failed password for user3 from 192.168.1.44 port 21430 ssh2
+Jun  4 00:15:45 vcm1 sshd: session closed for user user8
+Jun  4 00:15:45 vcm1 sshd: Failed password for user4 from 192.168.1.7 port 19196 ssh2
+Jun  4 00:15:45 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:45 vcm1 sshd: session closed for user user8
+Jun  4 00:15:45 vcm1 sshd: session closed for user user4
+Jun  4 00:15:45 vcm1 sshd: session closed for user user8
+Jun  4 00:15:45 vcm1 sshd: Accepted password for user5 from 10.0.0.70 port 14438 ssh2
+Jun  4 00:15:45 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:46 vcm1 sshd: Accepted password for user1 from 10.0.0.63 port 16589 ssh2
+Jun  4 00:15:46 vcm1 sshd: Accepted password for user7 from 10.0.0.86 port 1804 ssh2
+Jun  4 00:15:46 vcm1 sshd: Accepted password for user4 from 10.0.0.58 port 3486 ssh2
+Jun  4 00:15:46 vcm1 sshd: Failed password for user3 from 192.168.1.18 port 27090 ssh2
+Jun  4 00:15:46 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 00:15:46 vcm1 sudo: user2 : TTY=pts/0 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:15:46 vcm1 sshd: session closed for user user3
+Jun  4 00:15:46 vcm1 sshd: session closed for user user5
+Jun  4 00:15:54 vcm1 sudo: pam_unix(sudo:session): session closed for user root
+Jun  4 00:17:01 vcm1 CRON[9312]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Jun  4 00:17:01 vcm1 CRON[9312]: pam_unix(cron:session): session closed for user root
+Jun  4 00:23:05 vcm1 gdm-password]: gkr-pam: unlocked login keyring
+Jun  4 00:25:30 vcm1 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ctf ; USER=root ; COMMAND=./run_challenge.sh
+Jun  4 00:25:30 vcm1 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Jun  4 00:25:30 vcm1 sshd: session closed for user user4
+Jun  4 00:25:30 vcm1 sshd: Accepted password for user6 from 10.0.0.63 port 28721 ssh2
+Jun  4 00:25:30 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 00:25:30 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:30 vcm1 sshd: Accepted password for user1 from 10.0.0.90 port 12075 ssh2
+Jun  4 00:25:30 vcm1 sshd: session closed for user user4
+Jun  4 00:25:30 vcm1 sshd: Accepted password for user8 from 10.0.0.77 port 10633 ssh2
+Jun  4 00:25:30 vcm1 sshd: Accepted password for user2 from 10.0.0.70 port 15807 ssh2
+Jun  4 00:25:30 vcm1 sudo: user1 : TTY=pts/1 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:30 vcm1 sudo: user4 : TTY=pts/0 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:30 vcm1 sshd: session closed for user user7
+Jun  4 00:25:30 vcm1 sshd: Accepted password for user6 from 10.0.0.90 port 31073 ssh2
+Jun  4 00:25:30 vcm1 sshd: session closed for user user5
+Jun  4 00:25:30 vcm1 sshd: Failed password for user5 from 192.168.1.82 port 28721 ssh2
+Jun  4 00:25:30 vcm1 sshd: session closed for user user8
+Jun  4 00:25:30 vcm1 sshd: Accepted password for user4 from 10.0.0.6 port 18486 ssh2
+Jun  4 00:25:30 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 00:25:30 vcm1 sshd: Accepted password for user5 from 10.0.0.2 port 17950 ssh2
+Jun  4 00:25:30 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:30 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 00:25:30 vcm1 sudo: user1 : TTY=pts/0 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:31 vcm1 sshd: Accepted password for user3 from 10.0.0.94 port 30965 ssh2
+Jun  4 00:25:31 vcm1 sshd: Accepted password for user5 from 10.0.0.83 port 24158 ssh2
+Jun  4 00:25:31 vcm1 sshd: Accepted password for user6 from 10.0.0.46 port 23724 ssh2
+Jun  4 00:25:31 vcm1 sshd: session closed for user user5
+Jun  4 00:25:31 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:31 vcm1 sshd: Failed password for user4 from 192.168.1.67 port 19005 ssh2
+Jun  4 00:25:31 vcm1 sudo: user2 : TTY=pts/0 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:31 vcm1 sudo: message repeated 2 times: [ user2 : TTY=pts/0 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls]
+Jun  4 00:25:31 vcm1 sshd: Accepted password for user7 from 10.0.0.69 port 2133 ssh2
+Jun  4 00:25:31 vcm1 sshd: Failed password for user4 from 192.168.1.24 port 22778 ssh2
+Jun  4 00:25:31 vcm1 sshd: Failed password for user1 from 192.168.1.16 port 21028 ssh2
+Jun  4 00:25:31 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 00:25:31 vcm1 sshd: session closed for user user1
+Jun  4 00:25:31 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 00:25:31 vcm1 sshd: session closed for user user6
+Jun  4 00:25:31 vcm1 sshd: session closed for user user6
+Jun  4 00:25:31 vcm1 sudo: user2 : TTY=pts/0 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:31 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:31 vcm1 sshd: session closed for user user2
+Jun  4 00:25:31 vcm1 sudo: user4 : TTY=pts/0 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:31 vcm1 sshd: Failed password for user4 from 192.168.1.93 port 26557 ssh2
+Jun  4 00:25:31 vcm1 sshd: session closed for user user3
+Jun  4 00:25:31 vcm1 sshd: Failed password for user8 from 192.168.1.19 port 15743 ssh2
+Jun  4 00:25:31 vcm1 sshd: Failed password for user2 from 192.168.1.56 port 30233 ssh2
+Jun  4 00:25:31 vcm1 sshd: Failed password for user8 from 192.168.1.29 port 7590 ssh2
+Jun  4 00:25:31 vcm1 sshd: Accepted password for user8 from 10.0.0.14 port 24622 ssh2
+Jun  4 00:25:31 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:31 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 00:25:32 vcm1 sshd: Failed password for user3 from 192.168.1.87 port 21800 ssh2
+Jun  4 00:25:32 vcm1 sshd: Failed password for user1 from 192.168.1.53 port 33578 ssh2
+Jun  4 00:25:32 vcm1 sshd: session closed for user user6
+Jun  4 00:25:32 vcm1 sshd: Failed password for user5 from 192.168.1.71 port 3399 ssh2
+Jun  4 00:25:32 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:32 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 00:25:32 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 00:25:32 vcm1 sshd: session closed for user user2
+Jun  4 00:25:32 vcm1 sshd: Accepted password for user4 from 10.0.0.98 port 15819 ssh2
+Jun  4 00:25:32 vcm1 sshd: Accepted password for user1 from 10.0.0.26 port 5495 ssh2
+Jun  4 00:25:32 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:32 vcm1 sshd: Accepted password for user8 from 10.0.0.59 port 12396 ssh2
+Jun  4 00:25:32 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 00:25:32 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 00:25:32 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:32 vcm1 sudo: user2 : TTY=pts/0 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:32 vcm1 sudo: user1 : TTY=pts/0 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:32 vcm1 sudo: user1 : TTY=pts/0 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:32 vcm1 sshd: Failed password for user5 from 192.168.1.93 port 15131 ssh2
+Jun  4 00:25:32 vcm1 sshd: session closed for user user1
+Jun  4 00:25:32 vcm1 sshd: session closed for user user2
+Jun  4 00:25:32 vcm1 sshd: session closed for user user4
+Jun  4 00:25:32 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 00:25:32 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:32 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:32 vcm1 sshd: session closed for user user8
+Jun  4 00:25:32 vcm1 sudo: user2 : TTY=pts/1 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:32 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 00:25:33 vcm1 sshd: Accepted password for user7 from 10.0.0.20 port 1901 ssh2
+Jun  4 00:25:33 vcm1 sshd: Accepted password for user3 from 10.0.0.36 port 19488 ssh2
+Jun  4 00:25:33 vcm1 sshd: Failed password for user7 from 192.168.1.76 port 1064 ssh2
+Jun  4 00:25:33 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 00:25:33 vcm1 sshd: Failed password for user7 from 192.168.1.87 port 3713 ssh2
+Jun  4 00:25:33 vcm1 sshd: Failed password for user3 from 192.168.1.18 port 2347 ssh2
+Jun  4 00:25:33 vcm1 sshd: session closed for user user5
+Jun  4 00:25:33 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 00:25:33 vcm1 sshd: Failed password for user4 from 192.168.1.63 port 29611 ssh2
+Jun  4 00:25:33 vcm1 sshd: Accepted password for user4 from 10.0.0.72 port 27470 ssh2
+Jun  4 00:25:33 vcm1 sshd: Failed password for user6 from 192.168.1.39 port 11539 ssh2
+Jun  4 00:25:33 vcm1 sshd: session closed for user user1
+Jun  4 00:25:33 vcm1 sshd: Failed password for user2 from 192.168.1.47 port 31395 ssh2
+Jun  4 00:25:33 vcm1 sudo: user4 : TTY=pts/0 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:33 vcm1 sshd: Failed password for user6 from 192.168.1.85 port 5763 ssh2
+Jun  4 00:25:33 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:33 vcm1 sshd: Failed password for user8 from 192.168.1.11 port 15927 ssh2
+Jun  4 00:25:33 vcm1 sshd: session opened for user user5 by (uid=0)
+Jun  4 00:25:33 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:33 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 00:25:33 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:33 vcm1 sshd: session closed for user user8
+Jun  4 00:25:33 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 00:25:33 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 00:25:33 vcm1 sshd: Failed password for user4 from 192.168.1.34 port 1821 ssh2
+Jun  4 00:25:33 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:33 vcm1 sshd: session opened for user user6 by (uid=0)
+Jun  4 00:25:33 vcm1 sshd: Accepted password for user1 from 10.0.0.51 port 14207 ssh2
+Jun  4 00:25:33 vcm1 sshd: session closed for user user5
+Jun  4 00:25:34 vcm1 sshd: Accepted password for user5 from 10.0.0.27 port 18374 ssh2
+Jun  4 00:25:34 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 00:25:34 vcm1 sshd: Accepted password for user6 from 10.0.0.68 port 5959 ssh2
+Jun  4 00:25:34 vcm1 sshd: Failed password for user3 from 192.168.1.7 port 13583 ssh2
+Jun  4 00:25:34 vcm1 sshd: Accepted password for user8 from 10.0.0.35 port 12515 ssh2
+Jun  4 00:25:34 vcm1 sshd: session closed for user user3
+Jun  4 00:25:34 vcm1 sshd: Failed password for user8 from 192.168.1.7 port 2476 ssh2
+Jun  4 00:25:34 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:34 vcm1 sshd: session closed for user user8
+Jun  4 00:25:34 vcm1 sshd: Failed password for user8 from 192.168.1.95 port 23958 ssh2
+Jun  4 00:25:34 vcm1 sshd: Failed password for user4 from 192.168.1.18 port 12621 ssh2
+Jun  4 00:25:34 vcm1 sshd: Failed password for user8 from 192.168.1.76 port 31964 ssh2
+Jun  4 00:25:34 vcm1 sshd: Failed password for user7 from 192.168.1.96 port 12188 ssh2
+Jun  4 00:25:34 vcm1 sshd: session opened for user user6 by (uid=0)
+Jun  4 00:25:34 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 00:25:34 vcm1 sshd: Accepted password for user5 from 10.0.0.42 port 14540 ssh2
+Jun  4 00:25:34 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:34 vcm1 sshd: Accepted password for user8 from 10.0.0.67 port 16143 ssh2
+Jun  4 00:25:34 vcm1 sshd: Accepted password for user1 from 10.0.0.91 port 9878 ssh2
+Jun  4 00:25:34 vcm1 sshd: session closed for user user3
+Jun  4 00:25:34 vcm1 sshd: Failed password for user4 from 192.168.1.97 port 12136 ssh2
+Jun  4 00:25:34 vcm1 sudo: user1 : TTY=pts/1 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:34 vcm1 sshd: session closed for user user3
+Jun  4 00:25:34 vcm1 sshd: Failed password for user7 from 192.168.1.96 port 18140 ssh2
+Jun  4 00:25:34 vcm1 sshd: Accepted password for user7 from 10.0.0.49 port 7087 ssh2
+Jun  4 00:25:34 vcm1 sshd: Accepted password for user4 from 10.0.0.85 port 24700 ssh2
+Jun  4 00:25:34 vcm1 sshd: session closed for user user2
+Jun  4 00:25:34 vcm1 sshd: Accepted password for user5 from 10.0.0.88 port 10950 ssh2
+Jun  4 00:25:34 vcm1 sshd: Failed password for user1 from 192.168.1.41 port 11904 ssh2
+Jun  4 00:25:34 vcm1 sshd: Failed password for user5 from 192.168.1.4 port 1152 ssh2
+Jun  4 00:25:35 vcm1 sshd: Failed password for user1 from 192.168.1.56 port 26144 ssh2
+Jun  4 00:25:35 vcm1 sshd: Accepted password for user2 from 10.0.0.19 port 29868 ssh2
+Jun  4 00:25:35 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 00:25:35 vcm1 sshd: session closed for user user5
+Jun  4 00:25:35 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:35 vcm1 sshd: Accepted password for user5 from 10.0.0.66 port 6263 ssh2
+Jun  4 00:25:35 vcm1 sudo: user4 : TTY=pts/0 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 00:25:35 vcm1 sshd: session closed for user user2
+Jun  4 00:25:35 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 00:25:35 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 00:25:35 vcm1 sshd: session closed for user user4
+Jun  4 00:25:35 vcm1 sshd: Failed password for user4 from 192.168.1.30 port 27239 ssh2
+Jun  4 00:25:35 vcm1 sshd: Failed password for user8 from 192.168.1.99 port 18726 ssh2
+Jun  4 00:25:43 vcm1 sudo: pam_unix(sudo:session): session closed for user root
+Jun  4 00:39:01 vcm1 CRON[10353]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Jun  4 00:39:01 vcm1 CRON[10353]: pam_unix(cron:session): session closed for user root
+Jun  4 00:40:34 vcm1 gdm-password]: gkr-pam: unlocked login keyring
+Jun  4 01:04:25 vcm1 gdm-password]: gkr-pam: unlocked login keyring
+Jun  4 01:07:48 vcm1 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ctf ; USER=root ; COMMAND=./run_challenge.sh
+Jun  4 01:07:48 vcm1 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Jun  4 01:07:48 vcm1 sudo: user6 : TTY=pts/1 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:48 vcm1 sudo: user6 : TTY=pts/2 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:48 vcm1 sshd: session closed for user user11
+Jun  4 01:07:48 vcm1 sshd: session closed for user user1
+Jun  4 01:07:48 vcm1 sudo: user1 : TTY=pts/1 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:48 vcm1 sshd: Failed password for user5 from 192.168.1.71 port 16596 ssh2
+Jun  4 01:07:48 vcm1 sshd: session closed for user user8
+Jun  4 01:07:48 vcm1 sshd: Failed password for user8 from 192.168.1.29 port 3921 ssh2
+Jun  4 01:07:48 vcm1 sshd: session opened for user user9 by (uid=0)
+Jun  4 01:07:48 vcm1 sshd: Failed password for user2 from 192.168.1.191 port 17147 ssh2
+Jun  4 01:07:48 vcm1 sshd: session closed for user user11
+Jun  4 01:07:48 vcm1 sudo: user4 : TTY=pts/2 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:48 vcm1 sshd: Accepted password for user9 from 10.0.0.197 port 13770 ssh2
+Jun  4 01:07:48 vcm1 sshd: Accepted password for user5 from 10.0.0.154 port 24254 ssh2
+Jun  4 01:07:48 vcm1 sshd: Failed password for user2 from 192.168.1.155 port 9185 ssh2
+Jun  4 01:07:48 vcm1 sshd: session closed for user user8
+Jun  4 01:07:48 vcm1 sudo: user3 : TTY=pts/2 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:48 vcm1 sshd: Accepted password for user12 from 10.0.0.132 port 3914 ssh2
+Jun  4 01:07:48 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:48 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 01:07:48 vcm1 sshd: session closed for user user4
+Jun  4 01:07:49 vcm1 sshd: Accepted password for user10 from 10.0.0.58 port 9791 ssh2
+Jun  4 01:07:49 vcm1 sshd: Accepted password for user12 from 10.0.0.190 port 18313 ssh2
+Jun  4 01:07:49 vcm1 sshd: session closed for user user11
+Jun  4 01:07:49 vcm1 sshd: Failed password for user1 from 192.168.1.99 port 32370 ssh2
+Jun  4 01:07:49 vcm1 sshd: Failed password for user9 from 192.168.1.155 port 27869 ssh2
+Jun  4 01:07:49 vcm1 sshd: session opened for user user10 by (uid=0)
+Jun  4 01:07:49 vcm1 sshd: Accepted password for user12 from 10.0.0.144 port 12099 ssh2
+Jun  4 01:07:49 vcm1 sshd: Failed password for user12 from 192.168.1.114 port 21740 ssh2
+Jun  4 01:07:49 vcm1 sudo: user5 : TTY=pts/2 ; PWD=/home/user5 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:49 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 01:07:49 vcm1 sshd: session opened for user user12 by (uid=0)
+Jun  4 01:07:49 vcm1 sudo: user1 : TTY=pts/2 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:49 vcm1 sshd: Accepted password for user1 from 10.0.0.124 port 27769 ssh2
+Jun  4 01:07:49 vcm1 sshd: session opened for user user9 by (uid=0)
+Jun  4 01:07:49 vcm1 sshd: Failed password for user7 from 192.168.1.45 port 25779 ssh2
+Jun  4 01:07:49 vcm1 sudo: user6 : TTY=pts/0 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:49 vcm1 sudo: user4 : TTY=pts/0 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:49 vcm1 sshd: session closed for user user4
+Jun  4 01:07:49 vcm1 sshd: Failed password for user10 from 192.168.1.63 port 27955 ssh2
+Jun  4 01:07:49 vcm1 sudo: user5 : TTY=pts/2 ; PWD=/home/user5 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:49 vcm1 sshd: Accepted password for user3 from 10.0.0.151 port 6177 ssh2
+Jun  4 01:07:49 vcm1 sudo: user5 : TTY=pts/0 ; PWD=/home/user5 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:49 vcm1 sshd: Accepted password for user6 from 10.0.0.136 port 4729 ssh2
+Jun  4 01:07:49 vcm1 sshd: session opened for user user9 by (uid=0)
+Jun  4 01:07:49 vcm1 sshd: session closed for user user3
+Jun  4 01:07:49 vcm1 sshd: Accepted password for user8 from 10.0.0.197 port 15947 ssh2
+Jun  4 01:07:49 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:49 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 01:07:49 vcm1 sshd: session closed for user user12
+Jun  4 01:07:49 vcm1 sshd: session closed for user user7
+Jun  4 01:07:49 vcm1 sshd: Accepted password for user5 from 10.0.0.111 port 21109 ssh2
+Jun  4 01:07:49 vcm1 sshd: session opened for user user11 by (uid=0)
+Jun  4 01:07:49 vcm1 sshd: session opened for user user11 by (uid=0)
+Jun  4 01:07:49 vcm1 sshd: session closed for user user1
+Jun  4 01:07:49 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 01:07:49 vcm1 sudo: user2 : TTY=pts/2 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:49 vcm1 sshd: Failed password for user1 from 192.168.1.65 port 5995 ssh2
+Jun  4 01:07:49 vcm1 sshd: session closed for user user12
+Jun  4 01:07:49 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 01:07:50 vcm1 sshd: session closed for user user6
+Jun  4 01:07:50 vcm1 sshd: Failed password for user10 from 192.168.1.27 port 13138 ssh2
+Jun  4 01:07:50 vcm1 sudo: user6 : TTY=pts/2 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:50 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 01:07:50 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 01:07:50 vcm1 sshd: session opened for user user11 by (uid=0)
+Jun  4 01:07:50 vcm1 sshd: Failed password for user7 from 192.168.1.82 port 30569 ssh2
+Jun  4 01:07:50 vcm1 sshd: Failed password for user3 from 192.168.1.198 port 1333 ssh2
+Jun  4 01:07:50 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 01:07:50 vcm1 sshd: Failed password for user5 from 192.168.1.52 port 14118 ssh2
+Jun  4 01:07:50 vcm1 sshd: Failed password for user8 from 192.168.1.30 port 7364 ssh2
+Jun  4 01:07:50 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 01:07:50 vcm1 sshd: Failed password for user5 from 192.168.1.180 port 13583 ssh2
+Jun  4 01:07:50 vcm1 sshd: session opened for user user11 by (uid=0)
+Jun  4 01:07:50 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 01:07:50 vcm1 sshd: session closed for user user4
+Jun  4 01:07:50 vcm1 sshd: session closed for user user2
+Jun  4 01:07:50 vcm1 sudo: user4 : TTY=pts/2 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:50 vcm1 sudo: user1 : TTY=pts/2 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:50 vcm1 sshd: session closed for user user1
+Jun  4 01:07:50 vcm1 sshd: session closed for user user10
+Jun  4 01:07:50 vcm1 sshd: session closed for user user6
+Jun  4 01:07:50 vcm1 sshd: Accepted password for user1 from 10.0.0.15 port 6141 ssh2
+Jun  4 01:07:50 vcm1 sshd: Accepted password for user10 from 10.0.0.7 port 8156 ssh2
+Jun  4 01:07:50 vcm1 sshd: Accepted password for user3 from 10.0.0.13 port 23691 ssh2
+Jun  4 01:07:50 vcm1 sshd: session opened for user user11 by (uid=0)
+Jun  4 01:07:50 vcm1 sshd: Accepted password for user6 from 10.0.0.1 port 27924 ssh2
+Jun  4 01:07:50 vcm1 sshd: Accepted password for user6 from 10.0.0.140 port 14564 ssh2
+Jun  4 01:07:50 vcm1 sshd: Accepted password for user10 from 10.0.0.89 port 30959 ssh2
+Jun  4 01:07:50 vcm1 sshd: Failed password for user10 from 192.168.1.48 port 2604 ssh2
+Jun  4 01:07:50 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 01:07:50 vcm1 sshd: Accepted password for user2 from 10.0.0.90 port 7754 ssh2
+Jun  4 01:07:50 vcm1 sshd: Failed password for user12 from 192.168.1.31 port 21333 ssh2
+Jun  4 01:07:50 vcm1 sshd: Accepted password for user11 from 10.0.0.97 port 30368 ssh2
+Jun  4 01:07:50 vcm1 sshd: Accepted password for user3 from 10.0.0.66 port 18049 ssh2
+Jun  4 01:07:50 vcm1 sshd: session closed for user user8
+Jun  4 01:07:50 vcm1 sshd: session closed for user user1
+Jun  4 01:07:50 vcm1 sshd: Failed password for user8 from 192.168.1.174 port 20925 ssh2
+Jun  4 01:07:50 vcm1 sshd: session closed for user user9
+Jun  4 01:07:50 vcm1 sshd: Accepted password for user3 from 10.0.0.167 port 11412 ssh2
+Jun  4 01:07:50 vcm1 sshd: Failed password for user4 from 192.168.1.53 port 29729 ssh2
+Jun  4 01:07:51 vcm1 sshd: Failed password for user7 from 192.168.1.81 port 27639 ssh2
+Jun  4 01:07:51 vcm1 sshd: Failed password for user9 from 192.168.1.41 port 8667 ssh2
+Jun  4 01:07:51 vcm1 sshd: Failed password for user11 from 192.168.1.198 port 25080 ssh2
+Jun  4 01:07:51 vcm1 sshd: session closed for user user3
+Jun  4 01:07:51 vcm1 sshd: Accepted password for user5 from 10.0.0.169 port 31831 ssh2
+Jun  4 01:07:51 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:51 vcm1 sshd: Failed password for user6 from 192.168.1.42 port 16023 ssh2
+Jun  4 01:07:51 vcm1 sshd: Accepted password for user12 from 10.0.0.75 port 32190 ssh2
+Jun  4 01:07:51 vcm1 sshd: session opened for user user5 by (uid=0)
+Jun  4 01:07:51 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:51 vcm1 sshd: Failed password for user10 from 192.168.1.98 port 1496 ssh2
+Jun  4 01:07:51 vcm1 sshd: Failed password for user4 from 192.168.1.126 port 18380 ssh2
+Jun  4 01:07:51 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 01:07:51 vcm1 sudo: user2 : TTY=pts/1 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:51 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:51 vcm1 sshd: Accepted password for user1 from 10.0.0.105 port 25676 ssh2
+Jun  4 01:07:51 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 01:07:51 vcm1 sshd: Accepted password for user9 from 10.0.0.46 port 3640 ssh2
+Jun  4 01:07:51 vcm1 sudo: user5 : TTY=pts/2 ; PWD=/home/user5 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:51 vcm1 sudo: user2 : TTY=pts/2 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:51 vcm1 sshd: session closed for user user2
+Jun  4 01:07:51 vcm1 sudo: user6 : TTY=pts/0 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:51 vcm1 sshd: Accepted password for user6 from 10.0.0.37 port 3092 ssh2
+Jun  4 01:07:51 vcm1 sshd: Failed password for user11 from 192.168.1.67 port 30003 ssh2
+Jun  4 01:07:51 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 01:07:51 vcm1 sshd: Accepted password for user11 from 10.0.0.14 port 27524 ssh2
+Jun  4 01:07:51 vcm1 sshd: Failed password for user4 from 192.168.1.14 port 26084 ssh2
+Jun  4 01:07:51 vcm1 sshd: session closed for user user4
+Jun  4 01:07:51 vcm1 sshd: session opened for user user11 by (uid=0)
+Jun  4 01:07:51 vcm1 sshd: Accepted password for user10 from 10.0.0.180 port 9612 ssh2
+Jun  4 01:07:51 vcm1 sshd: Accepted password for user5 from 10.0.0.196 port 24380 ssh2
+Jun  4 01:07:51 vcm1 sshd: session closed for user user9
+Jun  4 01:07:51 vcm1 sudo: user2 : TTY=pts/2 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:51 vcm1 sshd: Accepted password for user7 from 10.0.0.51 port 16137 ssh2
+Jun  4 01:07:51 vcm1 sshd: Accepted password for user2 from 10.0.0.7 port 1506 ssh2
+Jun  4 01:07:51 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 01:07:51 vcm1 sshd: session opened for user user9 by (uid=0)
+Jun  4 01:07:51 vcm1 sudo: user1 : TTY=pts/1 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:51 vcm1 sshd: session opened for user user5 by (uid=0)
+Jun  4 01:07:51 vcm1 sshd: Accepted password for user6 from 10.0.0.161 port 8428 ssh2
+Jun  4 01:07:52 vcm1 sshd: Accepted password for user3 from 10.0.0.105 port 16784 ssh2
+Jun  4 01:07:52 vcm1 sshd: Accepted password for user11 from 10.0.0.110 port 25231 ssh2
+Jun  4 01:07:52 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 01:07:52 vcm1 sshd: session closed for user user5
+Jun  4 01:07:52 vcm1 sudo: user6 : TTY=pts/2 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:52 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 01:07:52 vcm1 sshd: session closed for user user11
+Jun  4 01:07:52 vcm1 sudo: user4 : TTY=pts/2 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:52 vcm1 sudo: user1 : TTY=pts/2 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:52 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 01:07:52 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 01:07:52 vcm1 sshd: Failed password for user4 from 192.168.1.44 port 25661 ssh2
+Jun  4 01:07:52 vcm1 sshd: session closed for user user12
+Jun  4 01:07:52 vcm1 sshd: session opened for user user9 by (uid=0)
+Jun  4 01:07:52 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 01:07:52 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 01:07:52 vcm1 sshd: Accepted password for user4 from 10.0.0.15 port 25190 ssh2
+Jun  4 01:07:52 vcm1 sudo: user2 : TTY=pts/2 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:52 vcm1 sudo: user2 : TTY=pts/0 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:52 vcm1 sshd: Accepted password for user7 from 10.0.0.107 port 17129 ssh2
+Jun  4 01:07:52 vcm1 sshd: Failed password for user5 from 192.168.1.102 port 29575 ssh2
+Jun  4 01:07:52 vcm1 sudo: user5 : TTY=pts/1 ; PWD=/home/user5 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:52 vcm1 sshd: session closed for user user3
+Jun  4 01:07:52 vcm1 sshd: Failed password for user1 from 192.168.1.81 port 13522 ssh2
+Jun  4 01:07:52 vcm1 sudo: user4 : TTY=pts/0 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:52 vcm1 sshd: session opened for user user10 by (uid=0)
+Jun  4 01:07:52 vcm1 sshd: Failed password for user11 from 192.168.1.9 port 23553 ssh2
+Jun  4 01:07:52 vcm1 sshd: session closed for user user1
+Jun  4 01:07:52 vcm1 sshd: Accepted password for user6 from 10.0.0.40 port 2434 ssh2
+Jun  4 01:07:52 vcm1 sshd: session opened for user user9 by (uid=0)
+Jun  4 01:07:52 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:52 vcm1 sshd: Accepted password for user2 from 10.0.0.161 port 15474 ssh2
+Jun  4 01:07:52 vcm1 sshd: session closed for user user10
+Jun  4 01:07:52 vcm1 sudo: user2 : TTY=pts/1 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:52 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 01:07:52 vcm1 sshd: session closed for user user9
+Jun  4 01:07:52 vcm1 sudo: user6 : TTY=pts/0 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:52 vcm1 sudo: user2 : TTY=pts/2 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:52 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 01:07:52 vcm1 sshd: session closed for user user1
+Jun  4 01:07:52 vcm1 sshd: session closed for user user6
+Jun  4 01:07:53 vcm1 sshd: Accepted password for user12 from 10.0.0.83 port 9421 ssh2
+Jun  4 01:07:53 vcm1 sshd: session opened for user user12 by (uid=0)
+Jun  4 01:07:53 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 01:07:53 vcm1 sudo: user2 : TTY=pts/0 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:53 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 01:07:53 vcm1 sshd: session closed for user user10
+Jun  4 01:07:53 vcm1 sshd: Accepted password for user11 from 10.0.0.171 port 5536 ssh2
+Jun  4 01:07:53 vcm1 sshd: Failed password for user1 from 192.168.1.189 port 24450 ssh2
+Jun  4 01:07:53 vcm1 sshd: session opened for user user10 by (uid=0)
+Jun  4 01:07:53 vcm1 sshd: Accepted password for user12 from 10.0.0.191 port 21119 ssh2
+Jun  4 01:07:53 vcm1 sudo: user6 : TTY=pts/1 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:53 vcm1 sudo: user2 : TTY=pts/1 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:53 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 01:07:53 vcm1 sshd: Failed password for user11 from 192.168.1.15 port 21210 ssh2
+Jun  4 01:07:53 vcm1 sshd: session closed for user user3
+Jun  4 01:07:53 vcm1 sshd: Failed password for user12 from 192.168.1.53 port 2190 ssh2
+Jun  4 01:07:53 vcm1 sshd: Accepted password for user10 from 10.0.0.189 port 20376 ssh2
+Jun  4 01:07:53 vcm1 sshd: Failed password for user10 from 192.168.1.153 port 7818 ssh2
+Jun  4 01:07:53 vcm1 sshd: session closed for user user9
+Jun  4 01:07:53 vcm1 sshd: session opened for user user12 by (uid=0)
+Jun  4 01:07:53 vcm1 sshd: Failed password for user10 from 192.168.1.200 port 25025 ssh2
+Jun  4 01:07:53 vcm1 sshd: session opened for user user5 by (uid=0)
+Jun  4 01:07:53 vcm1 sshd: Failed password for user11 from 192.168.1.86 port 12090 ssh2
+Jun  4 01:07:53 vcm1 sshd: session closed for user user10
+Jun  4 01:07:53 vcm1 sudo: user6 : TTY=pts/0 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:53 vcm1 sshd: session closed for user user9
+Jun  4 01:07:53 vcm1 sshd: session closed for user user12
+Jun  4 01:07:53 vcm1 sshd: session opened for user user5 by (uid=0)
+Jun  4 01:07:53 vcm1 sshd: Failed password for user8 from 192.168.1.135 port 1298 ssh2
+Jun  4 01:07:53 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:53 vcm1 sshd: session opened for user user10 by (uid=0)
+Jun  4 01:07:53 vcm1 sshd: session closed for user user6
+Jun  4 01:07:53 vcm1 sshd: Accepted password for user5 from 10.0.0.195 port 21461 ssh2
+Jun  4 01:07:53 vcm1 sudo: user6 : TTY=pts/1 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:53 vcm1 sshd: session closed for user user12
+Jun  4 01:07:53 vcm1 sshd: session closed for user user4
+Jun  4 01:07:53 vcm1 sudo: user1 : TTY=pts/1 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:53 vcm1 sudo: user6 : TTY=pts/2 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:53 vcm1 sshd: Failed password for user4 from 192.168.1.169 port 31370 ssh2
+Jun  4 01:07:53 vcm1 sshd: Failed password for user12 from 192.168.1.190 port 29775 ssh2
+Jun  4 01:07:53 vcm1 sshd: Failed password for user12 from 192.168.1.59 port 17940 ssh2
+Jun  4 01:07:54 vcm1 sshd: Failed password for user2 from 192.168.1.73 port 5476 ssh2
+Jun  4 01:07:54 vcm1 sshd: session closed for user user12
+Jun  4 01:07:54 vcm1 sshd: Accepted password for user5 from 10.0.0.134 port 5209 ssh2
+Jun  4 01:07:54 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 01:07:54 vcm1 sshd: Accepted password for user11 from 10.0.0.110 port 31903 ssh2
+Jun  4 01:07:54 vcm1 sshd: Accepted password for user5 from 10.0.0.82 port 29777 ssh2
+Jun  4 01:07:54 vcm1 sshd: session opened for user user10 by (uid=0)
+Jun  4 01:07:54 vcm1 sshd: session closed for user user9
+Jun  4 01:07:54 vcm1 sshd: session opened for user user12 by (uid=0)
+Jun  4 01:07:54 vcm1 sshd: Accepted password for user9 from 10.0.0.20 port 15092 ssh2
+Jun  4 01:07:54 vcm1 sshd: Accepted password for user9 from 10.0.0.114 port 8601 ssh2
+Jun  4 01:07:54 vcm1 sshd: Accepted password for user10 from 10.0.0.40 port 11633 ssh2
+Jun  4 01:07:54 vcm1 sudo: user1 : TTY=pts/1 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:54 vcm1 sshd: session closed for user user6
+Jun  4 01:07:54 vcm1 sshd: session opened for user user10 by (uid=0)
+Jun  4 01:07:54 vcm1 sshd: session closed for user user2
+Jun  4 01:07:54 vcm1 sshd: Accepted password for user10 from 10.0.0.159 port 2725 ssh2
+Jun  4 01:07:54 vcm1 sshd: session closed for user user9
+Jun  4 01:07:54 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 01:07:54 vcm1 sshd: Failed password for user11 from 192.168.1.2 port 31709 ssh2
+Jun  4 01:07:54 vcm1 sshd: Accepted password for user2 from 10.0.0.168 port 21586 ssh2
+Jun  4 01:07:54 vcm1 sshd: Failed password for user2 from 192.168.1.86 port 11791 ssh2
+Jun  4 01:07:54 vcm1 sudo: user3 : TTY=pts/2 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:54 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 01:07:54 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 01:07:54 vcm1 sshd: session closed for user user10
+Jun  4 01:07:54 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:54 vcm1 sshd: session closed for user user7
+Jun  4 01:07:54 vcm1 sshd: Accepted password for user9 from 10.0.0.86 port 4042 ssh2
+Jun  4 01:07:54 vcm1 sshd: Accepted password for user6 from 10.0.0.180 port 28814 ssh2
+Jun  4 01:07:54 vcm1 sudo: user1 : TTY=pts/1 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:54 vcm1 sudo: user1 : TTY=pts/0 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:54 vcm1 sshd: session closed for user user12
+Jun  4 01:07:54 vcm1 sudo: user4 : TTY=pts/0 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:54 vcm1 sshd: session closed for user user8
+Jun  4 01:07:54 vcm1 sshd: session closed for user user7
+Jun  4 01:07:54 vcm1 sshd: session opened for user user5 by (uid=0)
+Jun  4 01:07:54 vcm1 sshd: Failed password for user1 from 192.168.1.135 port 8787 ssh2
+Jun  4 01:07:54 vcm1 sshd: Accepted password for user12 from 10.0.0.116 port 15535 ssh2
+Jun  4 01:07:54 vcm1 sshd: Accepted password for user5 from 10.0.0.110 port 18134 ssh2
+Jun  4 01:07:54 vcm1 sshd: session opened for user user12 by (uid=0)
+Jun  4 01:07:54 vcm1 sshd: session closed for user user4
+Jun  4 01:07:55 vcm1 sshd: Failed password for user10 from 192.168.1.40 port 15074 ssh2
+Jun  4 01:07:55 vcm1 sshd: session closed for user user10
+Jun  4 01:07:55 vcm1 sshd: session closed for user user9
+Jun  4 01:07:55 vcm1 sshd: session closed for user user7
+Jun  4 01:07:55 vcm1 sshd: session opened for user user5 by (uid=0)
+Jun  4 01:07:55 vcm1 sshd: Failed password for user12 from 192.168.1.197 port 8511 ssh2
+Jun  4 01:07:55 vcm1 sudo: user2 : TTY=pts/1 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:55 vcm1 sshd: session closed for user user6
+Jun  4 01:07:55 vcm1 sshd: Failed password for user9 from 192.168.1.112 port 15142 ssh2
+Jun  4 01:07:55 vcm1 sshd: session closed for user user8
+Jun  4 01:07:55 vcm1 sshd: Accepted password for user7 from 10.0.0.74 port 1308 ssh2
+Jun  4 01:07:55 vcm1 sshd: session opened for user user5 by (uid=0)
+Jun  4 01:07:55 vcm1 sshd: session closed for user user12
+Jun  4 01:07:55 vcm1 sshd: Accepted password for user12 from 10.0.0.146 port 3007 ssh2
+Jun  4 01:07:55 vcm1 sudo: user6 : TTY=pts/0 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:55 vcm1 sshd: session opened for user user6 by (uid=0)
+Jun  4 01:07:55 vcm1 sshd: Failed password for user2 from 192.168.1.146 port 6554 ssh2
+Jun  4 01:07:55 vcm1 sudo: user1 : TTY=pts/2 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:55 vcm1 sshd: Failed password for user3 from 192.168.1.26 port 28301 ssh2
+Jun  4 01:07:55 vcm1 sshd: Accepted password for user4 from 10.0.0.191 port 1230 ssh2
+Jun  4 01:07:55 vcm1 sshd: session closed for user user5
+Jun  4 01:07:55 vcm1 sshd: Accepted password for user2 from 10.0.0.117 port 8087 ssh2
+Jun  4 01:07:55 vcm1 sshd: Accepted password for user7 from 10.0.0.50 port 15353 ssh2
+Jun  4 01:07:55 vcm1 sshd: session opened for user user5 by (uid=0)
+Jun  4 01:07:55 vcm1 sshd: Failed password for user4 from 192.168.1.159 port 16846 ssh2
+Jun  4 01:07:55 vcm1 sshd: session closed for user user6
+Jun  4 01:07:55 vcm1 sshd: session opened for user user5 by (uid=0)
+Jun  4 01:07:55 vcm1 sshd: session opened for user user10 by (uid=0)
+Jun  4 01:07:55 vcm1 sshd: Accepted password for user5 from 10.0.0.70 port 19570 ssh2
+Jun  4 01:07:55 vcm1 sshd: Accepted password for user1 from 10.0.0.188 port 4840 ssh2
+Jun  4 01:07:55 vcm1 sshd: session closed for user user3
+Jun  4 01:07:55 vcm1 sudo: user6 : TTY=pts/2 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:55 vcm1 sshd: session closed for user user7
+Jun  4 01:07:55 vcm1 sudo: user6 : TTY=pts/0 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:55 vcm1 sshd: session opened for user user11 by (uid=0)
+Jun  4 01:07:55 vcm1 sshd: Failed password for user10 from 192.168.1.167 port 8039 ssh2
+Jun  4 01:07:55 vcm1 sshd: session opened for user user9 by (uid=0)
+Jun  4 01:07:55 vcm1 sshd: session closed for user user10
+Jun  4 01:07:55 vcm1 sshd: Failed password for user2 from 192.168.1.128 port 8454 ssh2
+Jun  4 01:07:55 vcm1 sudo: user1 : TTY=pts/0 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:55 vcm1 sshd: Accepted password for user5 from 10.0.0.143 port 27635 ssh2
+Jun  4 01:07:56 vcm1 sshd: session closed for user user4
+Jun  4 01:07:56 vcm1 sshd: session closed for user user11
+Jun  4 01:07:56 vcm1 sshd: session closed for user user12
+Jun  4 01:07:56 vcm1 sshd: Accepted password for user5 from 10.0.0.150 port 29791 ssh2
+Jun  4 01:07:56 vcm1 sshd: session closed for user user6
+Jun  4 01:07:56 vcm1 sudo: user3 : TTY=pts/2 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:56 vcm1 sshd: Failed password for user9 from 192.168.1.172 port 8055 ssh2
+Jun  4 01:07:56 vcm1 sudo: user6 : TTY=pts/0 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:56 vcm1 sshd: Accepted password for user3 from 10.0.0.135 port 32416 ssh2
+Jun  4 01:07:56 vcm1 sudo: user1 : TTY=pts/1 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:56 vcm1 sudo: user2 : TTY=pts/1 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:56 vcm1 sshd: Failed password for user6 from 192.168.1.6 port 29345 ssh2
+Jun  4 01:07:56 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 01:07:56 vcm1 sshd: Accepted password for user1 from 10.0.0.78 port 7767 ssh2
+Jun  4 01:07:56 vcm1 sshd: Failed password for user12 from 192.168.1.162 port 5625 ssh2
+Jun  4 01:07:56 vcm1 sshd: Accepted password for user10 from 10.0.0.88 port 7700 ssh2
+Jun  4 01:07:56 vcm1 sshd: Accepted password for user10 from 10.0.0.187 port 27550 ssh2
+Jun  4 01:07:56 vcm1 sshd: Failed password for user2 from 192.168.1.175 port 10013 ssh2
+Jun  4 01:07:56 vcm1 sshd: session opened for user user9 by (uid=0)
+Jun  4 01:07:56 vcm1 sudo: user4 : TTY=pts/0 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:56 vcm1 sshd: Accepted password for user2 from 10.0.0.62 port 13010 ssh2
+Jun  4 01:07:56 vcm1 sshd: Accepted password for user12 from 10.0.0.31 port 26852 ssh2
+Jun  4 01:07:56 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 01:07:56 vcm1 sshd: Accepted password for user8 from 10.0.0.196 port 11918 ssh2
+Jun  4 01:07:56 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 01:07:56 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 01:07:56 vcm1 sshd: session opened for user user12 by (uid=0)
+Jun  4 01:07:56 vcm1 sshd: Accepted password for user8 from 10.0.0.53 port 18220 ssh2
+Jun  4 01:07:56 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 01:07:56 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:56 vcm1 sudo: user6 : TTY=pts/0 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:56 vcm1 sshd: Failed password for user5 from 192.168.1.70 port 21550 ssh2
+Jun  4 01:07:56 vcm1 sudo: user6 : TTY=pts/2 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:56 vcm1 sshd: Failed password for user7 from 192.168.1.1 port 2086 ssh2
+Jun  4 01:07:56 vcm1 sshd: session closed for user user2
+Jun  4 01:07:56 vcm1 sshd: session opened for user user10 by (uid=0)
+Jun  4 01:07:56 vcm1 sshd: Accepted password for user12 from 10.0.0.100 port 9221 ssh2
+Jun  4 01:07:56 vcm1 sshd: Failed password for user7 from 192.168.1.194 port 3020 ssh2
+Jun  4 01:07:56 vcm1 sshd: session opened for user user9 by (uid=0)
+Jun  4 01:07:56 vcm1 sshd: Failed password for user11 from 192.168.1.173 port 1562 ssh2
+Jun  4 01:07:56 vcm1 sshd: session closed for user user5
+Jun  4 01:07:56 vcm1 sshd: Accepted password for user12 from 10.0.0.15 port 7753 ssh2
+Jun  4 01:07:57 vcm1 sshd: session opened for user user6 by (uid=0)
+Jun  4 01:07:57 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 01:07:57 vcm1 sshd: Failed password for user5 from 192.168.1.144 port 14095 ssh2
+Jun  4 01:07:57 vcm1 sshd: Failed password for user5 from 192.168.1.181 port 2389 ssh2
+Jun  4 01:07:57 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:57 vcm1 sshd: session opened for user user11 by (uid=0)
+Jun  4 01:07:57 vcm1 sshd: Failed password for user12 from 192.168.1.17 port 18324 ssh2
+Jun  4 01:07:57 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:57 vcm1 sudo: user5 : TTY=pts/1 ; PWD=/home/user5 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:57 vcm1 sudo: user5 : TTY=pts/2 ; PWD=/home/user5 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:57 vcm1 sshd: Accepted password for user12 from 10.0.0.175 port 17488 ssh2
+Jun  4 01:07:57 vcm1 sudo: user4 : TTY=pts/1 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:57 vcm1 sshd: Failed password for user3 from 192.168.1.29 port 5312 ssh2
+Jun  4 01:07:57 vcm1 sshd: Accepted password for user1 from 10.0.0.56 port 29337 ssh2
+Jun  4 01:07:57 vcm1 sshd: session closed for user user3
+Jun  4 01:07:57 vcm1 sshd: Accepted password for user1 from 10.0.0.16 port 16677 ssh2
+Jun  4 01:07:57 vcm1 sshd: Accepted password for user1 from 10.0.0.124 port 1811 ssh2
+Jun  4 01:07:57 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:57 vcm1 sshd: session closed for user user9
+Jun  4 01:07:57 vcm1 sshd: Accepted password for user10 from 10.0.0.150 port 13039 ssh2
+Jun  4 01:07:57 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 01:07:57 vcm1 sudo: user3 : TTY=pts/2 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:57 vcm1 sshd: session closed for user user1
+Jun  4 01:07:57 vcm1 sshd: Accepted password for user8 from 10.0.0.38 port 21609 ssh2
+Jun  4 01:07:57 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 01:07:57 vcm1 sshd: Failed password for user11 from 192.168.1.18 port 28445 ssh2
+Jun  4 01:07:57 vcm1 sshd: session closed for user user7
+Jun  4 01:07:57 vcm1 sshd: session closed for user user11
+Jun  4 01:07:57 vcm1 sshd: session closed for user user8
+Jun  4 01:07:57 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 01:07:57 vcm1 sudo: user6 : TTY=pts/1 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:57 vcm1 sudo: user5 : TTY=pts/1 ; PWD=/home/user5 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:57 vcm1 sshd: session opened for user user5 by (uid=0)
+Jun  4 01:07:57 vcm1 sshd: session opened for user user10 by (uid=0)
+Jun  4 01:07:57 vcm1 sudo: user2 : TTY=pts/2 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:57 vcm1 sshd: Failed password for user10 from 192.168.1.66 port 16559 ssh2
+Jun  4 01:07:57 vcm1 sshd: Failed password for user6 from 192.168.1.146 port 33353 ssh2
+Jun  4 01:07:57 vcm1 sshd: Failed password for user6 from 192.168.1.132 port 16217 ssh2
+Jun  4 01:07:57 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 01:07:57 vcm1 sshd: Accepted password for user9 from 10.0.0.193 port 10082 ssh2
+Jun  4 01:07:57 vcm1 sudo: user4 : TTY=pts/2 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:57 vcm1 sshd: session opened for user user12 by (uid=0)
+Jun  4 01:07:58 vcm1 sshd: session opened for user user5 by (uid=0)
+Jun  4 01:07:58 vcm1 sshd: Failed password for user2 from 192.168.1.165 port 21437 ssh2
+Jun  4 01:07:58 vcm1 sshd: Accepted password for user2 from 10.0.0.106 port 24580 ssh2
+Jun  4 01:07:58 vcm1 sudo: user1 : TTY=pts/2 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:58 vcm1 sshd: session closed for user user11
+Jun  4 01:07:58 vcm1 sshd: session closed for user user7
+Jun  4 01:07:58 vcm1 sudo: user1 : TTY=pts/1 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:58 vcm1 sshd: Accepted password for user10 from 10.0.0.84 port 30535 ssh2
+Jun  4 01:07:58 vcm1 sshd: session closed for user user3
+Jun  4 01:07:58 vcm1 sshd: session opened for user user9 by (uid=0)
+Jun  4 01:07:58 vcm1 sshd: session closed for user user9
+Jun  4 01:07:58 vcm1 sshd: Accepted password for user9 from 10.0.0.80 port 13078 ssh2
+Jun  4 01:07:58 vcm1 sshd: Accepted password for user1 from 10.0.0.64 port 24914 ssh2
+Jun  4 01:07:58 vcm1 sshd: session closed for user user8
+Jun  4 01:07:58 vcm1 sshd: session opened for user user5 by (uid=0)
+Jun  4 01:07:58 vcm1 sshd: session closed for user user4
+Jun  4 01:07:58 vcm1 sudo: user1 : TTY=pts/1 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:58 vcm1 sshd: session opened for user user9 by (uid=0)
+Jun  4 01:07:58 vcm1 sshd: Failed password for user12 from 192.168.1.110 port 18169 ssh2
+Jun  4 01:07:58 vcm1 sshd: session opened for user user11 by (uid=0)
+Jun  4 01:07:58 vcm1 sshd: session closed for user user4
+Jun  4 01:07:58 vcm1 sshd: session closed for user user2
+Jun  4 01:07:58 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 01:07:58 vcm1 sshd: session closed for user user2
+Jun  4 01:07:58 vcm1 sudo: user1 : TTY=pts/0 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:58 vcm1 sshd: Accepted password for user12 from 10.0.0.73 port 9056 ssh2
+Jun  4 01:07:58 vcm1 sshd: Failed password for user1 from 192.168.1.158 port 23405 ssh2
+Jun  4 01:07:58 vcm1 sshd: Accepted password for user7 from 10.0.0.161 port 5214 ssh2
+Jun  4 01:07:58 vcm1 sshd: session closed for user user5
+Jun  4 01:07:58 vcm1 sudo: user5 : TTY=pts/0 ; PWD=/home/user5 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:58 vcm1 sshd: Failed password for user11 from 192.168.1.132 port 28574 ssh2
+Jun  4 01:07:58 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 01:07:58 vcm1 sshd: Failed password for user8 from 192.168.1.190 port 23317 ssh2
+Jun  4 01:07:58 vcm1 sudo: user1 : TTY=pts/2 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:58 vcm1 sshd: Failed password for user11 from 192.168.1.99 port 16915 ssh2
+Jun  4 01:07:58 vcm1 sshd: Failed password for user5 from 192.168.1.147 port 11924 ssh2
+Jun  4 01:07:58 vcm1 sshd: session closed for user user5
+Jun  4 01:07:58 vcm1 sudo: user4 : TTY=pts/2 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:58 vcm1 sshd: Accepted password for user12 from 10.0.0.127 port 4149 ssh2
+Jun  4 01:07:58 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 01:07:58 vcm1 sshd: Accepted password for user2 from 10.0.0.133 port 12894 ssh2
+Jun  4 01:07:58 vcm1 sshd: Accepted password for user2 from 10.0.0.86 port 30918 ssh2
+Jun  4 01:07:58 vcm1 sudo: user3 : TTY=pts/2 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:59 vcm1 sudo: user6 : TTY=pts/2 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:59 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:59 vcm1 sshd: session opened for user user6 by (uid=0)
+Jun  4 01:07:59 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 01:07:59 vcm1 sshd: Accepted password for user8 from 10.0.0.135 port 23777 ssh2
+Jun  4 01:07:59 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 01:07:59 vcm1 sshd: session closed for user user1
+Jun  4 01:07:59 vcm1 sshd: session closed for user user1
+Jun  4 01:07:59 vcm1 sudo: user3 : TTY=pts/0 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:59 vcm1 sshd: session opened for user user6 by (uid=0)
+Jun  4 01:07:59 vcm1 sshd: session opened for user user11 by (uid=0)
+Jun  4 01:07:59 vcm1 sshd: session closed for user user2
+Jun  4 01:07:59 vcm1 sshd: session opened for user user11 by (uid=0)
+Jun  4 01:07:59 vcm1 sshd: session closed for user user4
+Jun  4 01:07:59 vcm1 sshd: Accepted password for user4 from 10.0.0.27 port 22184 ssh2
+Jun  4 01:07:59 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 01:07:59 vcm1 sshd: session closed for user user8
+Jun  4 01:07:59 vcm1 sshd: Failed password for user11 from 192.168.1.94 port 6929 ssh2
+Jun  4 01:07:59 vcm1 sudo: user1 : TTY=pts/2 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:59 vcm1 sshd: Failed password for user11 from 192.168.1.109 port 20282 ssh2
+Jun  4 01:07:59 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 01:07:59 vcm1 sshd: Accepted password for user2 from 10.0.0.139 port 27992 ssh2
+Jun  4 01:07:59 vcm1 sudo: user6 : TTY=pts/1 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:59 vcm1 sshd: Accepted password for user7 from 10.0.0.185 port 28939 ssh2
+Jun  4 01:07:59 vcm1 sshd: session closed for user user7
+Jun  4 01:07:59 vcm1 sshd: session closed for user user7
+Jun  4 01:07:59 vcm1 sudo: user6 : TTY=pts/1 ; PWD=/home/user6 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:59 vcm1 sshd: session opened for user user7 by (uid=0)
+Jun  4 01:07:59 vcm1 sudo: user4 : TTY=pts/0 ; PWD=/home/user4 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:59 vcm1 sshd: Accepted password for user9 from 10.0.0.153 port 9490 ssh2
+Jun  4 01:07:59 vcm1 sshd: Failed password for user12 from 192.168.1.82 port 25691 ssh2
+Jun  4 01:07:59 vcm1 sshd: session opened for user user3 by (uid=0)
+Jun  4 01:07:59 vcm1 sshd: session closed for user user6
+Jun  4 01:07:59 vcm1 sshd: Failed password for user6 from 192.168.1.155 port 2195 ssh2
+Jun  4 01:07:59 vcm1 sudo: user5 : TTY=pts/0 ; PWD=/home/user5 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:59 vcm1 sshd: Failed password for user11 from 192.168.1.152 port 2076 ssh2
+Jun  4 01:07:59 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 01:07:59 vcm1 sudo: user1 : TTY=pts/2 ; PWD=/home/user1 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:07:59 vcm1 sshd: session opened for user user2 by (uid=0)
+Jun  4 01:07:59 vcm1 sshd: Failed password for user9 from 192.168.1.120 port 2710 ssh2
+Jun  4 01:07:59 vcm1 sshd: session opened for user user9 by (uid=0)
+Jun  4 01:07:59 vcm1 sshd: Accepted password for user6 from 10.0.0.21 port 25118 ssh2
+Jun  4 01:08:00 vcm1 sshd: Failed password for user3 from 192.168.1.36 port 3235 ssh2
+Jun  4 01:08:00 vcm1 sshd: Accepted password for user4 from 10.0.0.86 port 29794 ssh2
+Jun  4 01:08:00 vcm1 sshd: session closed for user user8
+Jun  4 01:08:00 vcm1 sshd: Accepted password for user1 from 10.0.0.134 port 26014 ssh2
+Jun  4 01:08:00 vcm1 sudo: user2 : TTY=pts/1 ; PWD=/home/user2 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:08:00 vcm1 sshd: Failed password for user4 from 192.168.1.191 port 28042 ssh2
+Jun  4 01:08:00 vcm1 sshd: session closed for user user8
+Jun  4 01:08:00 vcm1 sshd: session closed for user user3
+Jun  4 01:08:00 vcm1 sshd: Failed password for user1 from 192.168.1.6 port 10112 ssh2
+Jun  4 01:08:00 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 01:08:00 vcm1 sshd: session closed for user user2
+Jun  4 01:08:00 vcm1 sshd: session closed for user user4
+Jun  4 01:08:00 vcm1 sshd: Accepted password for user7 from 10.0.0.40 port 8547 ssh2
+Jun  4 01:08:00 vcm1 sudo: user5 : TTY=pts/2 ; PWD=/home/user5 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:08:00 vcm1 sshd: Accepted password for user7 from 10.0.0.57 port 15499 ssh2
+Jun  4 01:08:00 vcm1 sshd: session closed for user user3
+Jun  4 01:08:00 vcm1 sshd: session opened for user user1 by (uid=0)
+Jun  4 01:08:00 vcm1 sudo: user3 : TTY=pts/1 ; PWD=/home/user3 ; USER=root ; COMMAND=/usr/bin/ls
+Jun  4 01:08:00 vcm1 sshd: session opened for user user8 by (uid=0)
+Jun  4 01:08:00 vcm1 sshd: Accepted password for user2 from 10.0.0.164 port 22749 ssh2
+Jun  4 01:08:00 vcm1 sshd: Accepted password for user11 from 10.0.0.42 port 14621 ssh2
+Jun  4 01:08:00 vcm1 sshd: session closed for user user11
+Jun  4 01:08:00 vcm1 sshd: session opened for user user4 by (uid=0)
+Jun  4 01:08:00 vcm1 sshd: Accepted password for user9 from 10.0.0.144 port 2248 ssh2
+Jun  4 01:08:00 vcm1 sshd: session closed for user user6
+Jun  4 01:08:23 vcm1 sudo: pam_unix(sudo:session): session closed for user root
+Jun  4 01:09:01 vcm1 CRON[14703]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Jun  4 01:09:01 vcm1 CRON[14703]: pam_unix(cron:session): session closed for user root
+Jun  4 01:17:01 vcm1 CRON[14790]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Jun  4 01:17:01 vcm1 CRON[14790]: pam_unix(cron:session): session closed for user root
+Jun  4 01:18:52 vcm1 gdm-password]: gkr-pam: unlocked login keyring

@@ -17,6 +17,21 @@ window.onload = async () => {
      else if (path.endsWith("/aiChallenge")) {
       await fetchAiChallenge();
     }
+      else if (path.endsWith("/backDoorChallenge")) {
+      await fetchBackDoorChallenge();
+    }
+     else if (path.endsWith("/springBootChallenge")) {
+      await fetchspringBootChallenge();
+    }
+
+     else if (path.endsWith("/ShadowsInTheWeb")) {
+      await fetchShadowsInTheWebChallenge();
+    }
+
+    else if (path.endsWith("/AiEvasion")) {
+      await fetchAiEvasionChallenge();
+    }
+
      else {
        await ensureAuthenticated();
     }
@@ -97,6 +112,27 @@ async function fetchAiChallenge() {
   return downloadZip(`${PROXY_API}/aichallenge`, { token });
 }
 
+async function fetchBackDoorChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/backdoor`, { token });
+}
+
+async function fetchspringBootChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/springboot`, { token });
+}
+
+async function fetchShadowsInTheWebChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/ShadowsInTheWeb`, { token });
+}
+
+
+
+async function fetchAiEvasionChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/AiEvasion`, { token });
+}
 // Shared download logic
 async function downloadZip(apiUrl, bodyData) {
    const statusDiv = document.getElementById("download-status");
