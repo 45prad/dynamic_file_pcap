@@ -560,7 +560,7 @@ def backdoor_challenge():
                 new_payload = target[:-2] + part_a.encode() + b'\r\n'
                 pkt1[Raw].load = payload.replace(target, new_payload)
                 del pkt1[IP].len, pkt1[IP].chksum, pkt1[TCP].chksum
-                found_133333 = True
+                found_133336 = True
 
         # Reassemble packets 134325 and 134326
         pkt_stream = [packets[134324], packets[134325]]  # Wireshark numbers are +1
