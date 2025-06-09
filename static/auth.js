@@ -43,7 +43,7 @@ window.onload = async () => {
 
 // Function to check and handle authentication
 async function ensureAuthenticated() {
-  let token = localStorage.getItem("Hactify-Auth-token");
+  let token = localStorage.getItem("Auth-token");
 
   if (!token) {
     token = await handleLoginPrompt();
@@ -72,7 +72,7 @@ async function handleLoginPrompt() {
     const data = await response.json();
 
     if (data.success) {
-      localStorage.setItem("Hactify-Auth-token", data.authtoken);
+      localStorage.setItem("Auth-token", data.authtoken);
       alert("Login successful!");
       return data.authtoken;
     } else {
