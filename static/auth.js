@@ -287,7 +287,7 @@ async function downloadZip(apiUrl, bodyData) {
     window.URL.revokeObjectURL(downloadUrl);
   } catch (err) {
     console.error("Error:", err);
-    alert("Failed to download PCAP file: " + err.message);
+    alert("Failed to download challenge file: " + err.message);
     throw err;
   }
   finally {
@@ -336,7 +336,7 @@ async function download7z(apiUrl, bodyData) {
     window.URL.revokeObjectURL(downloadUrl);
   } catch (err) {
     console.error("Error:", err);
-    alert("Failed to download PCAP file: " + err.message);
+    alert("Failed to download challenge file: " + err.message);
     throw err;
   }
   finally {
