@@ -92,11 +92,11 @@ CHALLENGE_PATHS = {
         'xlsm_file': os.path.join(CHALLENGES_DIR, 'MalDoc', 'Q4_Sales_Report_2024.xlsm'),
     },
     'LemonDuck':{
-        'Lemonduck1': os.path.join(CHALLENGES_DIR, 'LemonDuck', 'Lemonduck1.xlsm'),
-        'Lemonduck2': os.path.join(CHALLENGES_DIR, 'LemonDuck', 'Lemonduck2.xlsm'),
-        'Lemonduck3': os.path.join(CHALLENGES_DIR, 'LemonDuck', 'Lemonduck3.xlsm'),
-        'Lemonduck4': os.path.join(CHALLENGES_DIR, 'LemonDuck', 'Lemonduck4.xlsm'),
-        'Lemonduck5': os.path.join(CHALLENGES_DIR, 'LemonDuck', 'Lemonduck5.xlsm'),
+        'LemonDuck1': os.path.join(CHALLENGES_DIR, 'LemonDuck', 'LemonDuck1.xlsm'),
+        'LemonDuck2': os.path.join(CHALLENGES_DIR, 'LemonDuck', 'LemonDuck2.xlsm'),
+        'LemonDuck3': os.path.join(CHALLENGES_DIR, 'LemonDuck', 'LemonDuck3.xlsm'),
+        'LemonDuck4': os.path.join(CHALLENGES_DIR, 'LemonDuck', 'LemonDuck4.xlsm'),
+        'LemonDuck5': os.path.join(CHALLENGES_DIR, 'LemonDuck', 'LemonDuck5.xlsm'),
     },
     'userIds':{
         'userId_file': os.path.join(CHALLENGES_DIR, 'userIds', 'userId.json'),
@@ -1295,9 +1295,8 @@ def lemondock_challenge():
         
         # Determine which LemonDuck file to use (cycle through 1-5)
         lemon_duck_number = ((team_index - 1) % 5) + 1
-        print(lemon_duck_number)
-        lemon_duck_filename = f"Lemonduck{lemon_duck_number}.xlsm"
-        lemon_duck_path = CHALLENGE_PATHS['LemonDuck'][f"Lemonduck{lemon_duck_number}"]
+        lemon_duck_filename = f"LemonDuck{lemon_duck_number}.xlsm"
+        lemon_duck_path = CHALLENGE_PATHS['LemonDuck'][f"LemonDuck{lemon_duck_number}"]
         
         if not os.path.exists(lemon_duck_path):
             return jsonify({"error": f"LemonDuck file {lemon_duck_filename} not found"}), 404
