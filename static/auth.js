@@ -81,6 +81,10 @@ window.onload = async () => {
       await fetchshadowInCiMassiveChallenge();
     }
 
+     else if (path.endsWith("/BeaconInTheDark")) {
+      await fetchBeaconInTheDarkChallenge();
+    }
+
      else {
        await ensureAuthenticated();
     }
@@ -251,6 +255,13 @@ async function fetchshadowInCiMassiveChallenge() {
   const token = await ensureAuthenticated();
   return downloadZip(`${PROXY_API}/shadowInCiMassive`, { token });
 }
+
+async function fetchBeaconInTheDarkChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/BeaconInTheDark`, { token });
+}
+
+
 
 // Shared download logic
 async function downloadZip(apiUrl, bodyData) {

@@ -157,6 +157,13 @@ CHALLENGE_PATHS = {
         'ShadowInCiMassive3': os.path.join(CHALLENGES_DIR, 'ShadowInCiMassive', 'ShadowInCiMassive3.zip'),
         'ShadowInCiMassive4': os.path.join(CHALLENGES_DIR, 'ShadowInCiMassive', 'ShadowInCiMassive4.zip'),
         'ShadowInCiMassive5': os.path.join(CHALLENGES_DIR, 'ShadowInCiMassive', 'ShadowInCiMassive5.zip'),
+    },
+       'BeaconInTheDark':{
+        'BeaconInTheDark1': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'BeaconInTheDark1.zip'),
+        'BeaconInTheDark2': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'BeaconInTheDark2.zip'),
+        'BeaconInTheDark3': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'BeaconInTheDark3.zip'),
+        'BeaconInTheDark4': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'BeaconInTheDark4.zip'),
+        'BeaconInTheDark5': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'BeaconInTheDark5.zip'),
     }
 }
 
@@ -2019,6 +2026,64 @@ def shadowInCiMassive_challenge():
             mimetype='application/zip',
             headers={
                 'Content-Disposition': f'attachment; filename="{username}"',
+                'Content-Type': 'application/zip'
+            }
+        )
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+
+@app.route('/BeaconInTheDark', methods=['POST'])
+def shadowInCiMassive_challenge():
+    try:
+        data = request.json
+        token = data.get("token")
+        if not token:
+            return jsonify({"error": "Missing token"}), 400
+
+        # Get user info from auth endpoint - using POST request
+        headers = { "Auth-token": token }
+        res = requests.post(f"{CTF_BASE_URL}/api/auth/getuser", headers=headers)
+
+        if res.status_code != 200:
+            return jsonify({"error": "Failed to get user info", "status_code": res.status_code}), res.status_code
+
+        user_data = res.json()
+        user_id = user_data["_id"]
+        username = user_data["name"]
+
+        # Load the userId.json file from configured path
+        userid_path = CHALLENGE_PATHS['userIds']['userId_file']
+        with open(userid_path, 'r') as f:
+            teams = json.load(f)
+        
+        # Find the matching team by ID
+        team = next((t for t in teams if t["id"] == user_id), None)
+        if not team:
+            return jsonify({"error": "User ID not found in teams"}), 404
+        
+        team_index = team["index"]
+        
+        # Determine which Jsploit file to use (cycle through 1-5)
+        BeaconInTheDark_number = ((team_index - 1) % 5) + 1
+        BeaconInTheDark_filename = f"BeaconInTheDark{BeaconInTheDark_number}.zip"
+        BeaconInTheDark_path = CHALLENGE_PATHS['BeaconInTheDark'][f"BeaconInTheDark{BeaconInTheDark_number}"]
+        
+        if not os.path.exists(BeaconInTheDark_path):
+            return jsonify({"error": f"BeaconInTheDark file {BeaconInTheDark_filename} not found"}), 404
+        
+        # Stream the response directly
+        def generate():
+            with open(BeaconInTheDark_path, 'rb') as f:
+                while chunk := f.read(1024):
+                    yield chunk
+        
+        return Response(
+            generate(),
+            mimetype='application/zip',
+            headers={
+                'Content-Disposition': f'attachment; filename="BeaconInTheDark_{username}"',
                 'Content-Type': 'application/zip'
             }
         )
