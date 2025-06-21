@@ -159,11 +159,11 @@ CHALLENGE_PATHS = {
         'ShadowInCiMassive5': os.path.join(CHALLENGES_DIR, 'ShadowInCiMassive', 'ShadowInCiMassive5.zip'),
     },
        'BeaconInTheDark':{
-        'BeaconInTheDark1': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'BeaconInTheDark1.zip'),
-        'BeaconInTheDark2': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'BeaconInTheDark2.zip'),
-        'BeaconInTheDark3': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'BeaconInTheDark3.zip'),
-        'BeaconInTheDark4': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'BeaconInTheDark4.zip'),
-        'BeaconInTheDark5': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'BeaconInTheDark5.zip'),
+        'Sysmon1': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'Sysmon1.evtx'),
+        'Sysmon2': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'Sysmon2.evtx'),
+        'Sysmon3': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'Sysmon3.evtx'),
+        'Sysmon4': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'Sysmon4.evtx'),
+        'Sysmon5': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'Sysmon5.evtx'),
     }
 }
 
@@ -2065,25 +2065,41 @@ def BeaconInTheDark_challenge():
         
         team_index = team["index"]
         
-        # Determine which Jsploit file to use (cycle through 1-5)
-        BeaconInTheDark_number = ((team_index - 1) % 5) + 1
-        BeaconInTheDark_filename = f"BeaconInTheDark{BeaconInTheDark_number}.zip"
-        BeaconInTheDark_path = CHALLENGE_PATHS['BeaconInTheDark'][f"BeaconInTheDark{BeaconInTheDark_number}"]
+        # Determine which pcap file to use (cycle through 1-5)
+        Sysmon_number = ((team_index - 1) % 5) + 1
+       
+        Sysmon_filename = f"Sysmon{Sysmon_number}.evtx"
+        Sysmon_path = CHALLENGE_PATHS['BeaconInTheDark'][f"Sysmon{Sysmon_number}"]
+       
         
-        if not os.path.exists(BeaconInTheDark_path):
-            return jsonify({"error": f"BeaconInTheDark file {BeaconInTheDark_filename} not found"}), 404
+        if not os.path.exists(Sysmon_path):
+            return jsonify({"error": f"Sysmon file {Sysmon_filename} not found"}), 404
         
-        # Stream the response directly
+        # Create a temp directory for processing
+        temp_dir = tempfile.mkdtemp()
+        output_filename = f"{username}.evtx"
+        output_path = os.path.join(temp_dir, output_filename)
+        zip_path = os.path.join(temp_dir, f"{username}_BeaconInTheDark.zip")
+        
+        # Copy the file with new name
+        shutil.copy(Sysmon_path, output_path)
+        
+        # Create zip file
+        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(output_path, arcname=output_filename)
+        
+        # Stream the response and clean up
         def generate():
-            with open(BeaconInTheDark_path, 'rb') as f:
+            with open(zip_path, 'rb') as f:
                 while chunk := f.read(1024):
                     yield chunk
+            shutil.rmtree(temp_dir)
         
         return Response(
             generate(),
             mimetype='application/zip',
             headers={
-                'Content-Disposition': f'attachment; filename="BeaconInTheDark_{username}"',
+                'Content-Disposition': f'attachment; filename="{username}_BeaconInTheDark.zip"',
                 'Content-Type': 'application/zip'
             }
         )
