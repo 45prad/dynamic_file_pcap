@@ -2035,7 +2035,7 @@ def shadowInCiMassive_challenge():
     
 
 @app.route('/BeaconInTheDark', methods=['POST'])
-def shadowInCiMassive_challenge():
+def BeaconInTheDark_challenge():
     try:
         data = request.json
         token = data.get("token")
