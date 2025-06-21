@@ -263,11 +263,16 @@ async function fetchBeaconInTheDarkChallenge() {
 
 
 
-// Shared download logic
+// Shared download logic for ZIP files
 async function downloadZip(apiUrl, bodyData) {
-   const statusDiv = document.getElementById("download-status");
+  const statusDiv = document.getElementById("download-status");
+  const downloadText = document.getElementById("download-text");
+  
   try {
-      if (statusDiv) statusDiv.style.display = "block";
+    if (statusDiv) {
+      statusDiv.style.display = "block";
+      downloadText.textContent = "Preparing challenge file...";
+    }
 
     const response = await fetch(apiUrl, {
       method: "POST",
@@ -296,27 +301,37 @@ async function downloadZip(apiUrl, bodyData) {
     a.click();
     a.remove();
     window.URL.revokeObjectURL(downloadUrl);
+
+    if (statusDiv) {
+      downloadText.textContent = "challenge download complete!";
+    }
   } catch (err) {
     console.error("Error:", err);
-    alert("Failed to download challenge file: " + err.message);
+    if (statusDiv) {
+      downloadText.textContent = "Download failed!";
+    }
+    alert("Failed to download ZIP file: " + err.message);
     throw err;
-  }
-  finally {
-    // Hide the message after a short delay
+  } finally {
     if (statusDiv) {
       setTimeout(() => {
         statusDiv.style.display = "none";
-      }, 2000);
+        downloadText.textContent = "Downloading challenge file...";
+      }, 3000);
     }
   }
 }
 
-
-// Shared download logic
+// Shared download logic for 7Z files
 async function download7z(apiUrl, bodyData) {
-   const statusDiv = document.getElementById("download-status");
+  const statusDiv = document.getElementById("download-status");
+  const downloadText = document.getElementById("download-text");
+  
   try {
-      if (statusDiv) statusDiv.style.display = "block";
+    if (statusDiv) {
+      statusDiv.style.display = "block";
+      downloadText.textContent = "Preparing challenge file...";
+    }
 
     const response = await fetch(apiUrl, {
       method: "POST",
@@ -345,17 +360,23 @@ async function download7z(apiUrl, bodyData) {
     a.click();
     a.remove();
     window.URL.revokeObjectURL(downloadUrl);
+
+    if (statusDiv) {
+      downloadText.textContent = "challenge download complete!";
+    }
   } catch (err) {
     console.error("Error:", err);
-    alert("Failed to download challenge file: " + err.message);
+    if (statusDiv) {
+      downloadText.textContent = "Download failed!";
+    }
+    alert("Failed to download 7Z file: " + err.message);
     throw err;
-  }
-  finally {
-    // Hide the message after a short delay
+  } finally {
     if (statusDiv) {
       setTimeout(() => {
         statusDiv.style.display = "none";
-      }, 2000);
+        downloadText.textContent = "Downloading challenge file...";
+      }, 3000);
     }
   }
 }

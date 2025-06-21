@@ -1,37 +1,355 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>challenge</title>
+  <title>CyberSuraksha 2025 Challenge</title>
   <style>
+    :root {
+      --primary: #64ffda;
+      --primary-dark: #52d1b3;
+      --secondary: #8892b0;
+      --dark-blue: #0a192f;
+      --darker-blue: #020c1b;
+      --light-blue: #112240;
+      --lighter-blue: #233554;
+      --text-primary: #ccd6f6;
+      --text-secondary: #a8b2d1;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--dark-blue);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 25% 25%, rgba(100, 255, 218, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(100, 255, 218, 0.1) 0%, transparent 50%);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3rem;
+      position: relative;
+      padding: 2rem 0;
+    }
+    
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      border-radius: 3px;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .logo {
+      height: 90px;
+      filter: drop-shadow(0 0 5px rgba(100, 255, 218, 0.3));
+      transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    
+    .title-container {
+      text-align: center;
+    }
+    
+    h1 {
+      color: var(--primary);
+      margin: 0;
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+    }
+    
+    h2 {
+      color: var(--secondary);
+      margin-top: 0.5rem;
+      font-weight: 300;
+      font-size: 1.3rem;
+      letter-spacing: 0.5px;
+    }
+    
+    .main-content {
+      background-color: rgba(17, 34, 64, 0.6);
+      border-radius: 12px;
+      padding: 2.5rem;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(100, 255, 218, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      margin-bottom: 3rem;
+    }
+    
+    .challenge-card {
+      display: none;
+      background-color: var(--light-blue);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 2rem;
+      border-left: 4px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .challenge-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Download status with animation */
     #download-status {
       display: none;
       position: fixed;
       top: 20px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #222;
-      color: white;
-      padding: 10px 20px;
+      background-color: var(--light-blue);
+      color: var(--primary);
+      padding: 1rem 2rem;
       border-radius: 8px;
-      font-weight: bold;
+      font-weight: 600;
       z-index: 1000;
-      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--primary);
+      animation: pulse 2s infinite;
+      backdrop-filter: blur(5px);
+      min-width: 300px;
+      text-align: center;
+    }
+    
+    /* Loading animation */
+    .loader {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(100, 255, 218, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(100, 255, 218, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
+    }
+    
+    /* Cyber theme elements */
+    .cyber-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(100, 255, 218, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100, 255, 218, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .cyber-corner {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      border-color: var(--primary);
+      border-style: solid;
+      border-width: 0;
+      pointer-events: none;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+    
+    .corner-tl {
+      top: 20px;
+      left: 20px;
+      border-top-width: 3px;
+      border-left-width: 3px;
+    }
+    
+    .corner-tr {
+      top: 20px;
+      right: 20px;
+      border-top-width: 3px;
+      border-right-width: 3px;
+    }
+    
+    .corner-bl {
+      bottom: 20px;
+      left: 20px;
+      border-bottom-width: 3px;
+      border-left-width: 3px;
+    }
+    
+    .corner-br {
+      bottom: 20px;
+      right: 20px;
+      border-bottom-width: 3px;
+      border-right-width: 3px;
+    }
+    
+    /* Floating particles animation */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .particle {
+      position: absolute;
+      background-color: var(--primary);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float linear infinite;
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+      }
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .header {
+        margin-bottom: 2rem;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.1rem;
+      }
+      
+      .main-content {
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h2>Challenge</h2>
+  <!-- Cyber theme decorative elements -->
+  <div class="cyber-grid"></div>
+  <div class="cyber-corner corner-tl"></div>
+  <div class="cyber-corner corner-tr"></div>
+  <div class="cyber-corner corner-bl"></div>
+  <div class="cyber-corner corner-br"></div>
+  
+  <!-- Floating particles -->
+  <div class="particles" id="particles"></div>
 
-  <!-- Flag Section (Optional Use) -->
-  <div id="challengeSection" style="display:none;">
-    <div id="flagDisplay"></div>
+  <div class="container">
+    <div class="header">
+      <div class="logo-container">
+        <img src="/static/ctflogo.png" alt="CyberSuraksha Logo" class="logo">
+      </div>
+      <div class="title-container">
+        <h1>CyberSuraksha 2025</h1>
+        <h2>Advanced Cybersecurity Challenge Platform</h2>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Welcome, Participant</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; max-width: 800px; margin: 0 auto 2rem;">
+        Your challenge file is being downloaded. Please be patient while we prepare your challenge.
+      </p>
+
+    <footer style="text-align: center; color: var(--secondary); font-size: 0.9rem; padding: 1rem;">
+      © 2025 CyberSuraksha Challenge | All Rights Reserved
+    </footer>
   </div>
 
-  <!-- Download Status -->
-  <div id="download-status">Downloading file...</div>
+  <!-- Download Status with animation -->
+  <div id="download-status">
+    <span class="loader"></span>
+    <span id="download-text">Downloading challenge file...</span>
+  </div>
 
   <!-- Script Includes -->
   <script src="/static/auth.js"></script>
   
+  <script>
+    // Create floating particles
+    document.addEventListener('DOMContentLoaded', function() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random size between 1px and 3px
+        const size = Math.random() * 2 + 1;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Random position
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        
+        // Random animation duration between 10s and 20s
+        const duration = Math.random() * 10 + 10;
+        particle.style.animationDuration = `${duration}s`;
+        
+        // Random delay
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    });
+  </script>
 </body>
 </html>

@@ -451,7 +451,7 @@ def chatgpt_challenge():
 
         temp_dir = tempfile.mkdtemp()
         output_js_path = os.path.join(temp_dir, f"{username}.js")
-        zip_path = os.path.join(temp_dir, f"{username}_challenge.zip")
+        zip_path = os.path.join(temp_dir, f"{username}_chatgpt.zip")
 
         with open(output_js_path, "w", encoding="utf-8") as f:
             f.write(js_code)
@@ -469,7 +469,7 @@ def chatgpt_challenge():
         return Response(
             generate(),
             mimetype='application/zip',
-            headers={'Content-Disposition': f'attachment; filename="{username}_challenge.zip"'}
+            headers={'Content-Disposition': f'attachment; filename="{username}_chatgpt.zip"'}
         )
 
     except Exception as e:
@@ -546,7 +546,7 @@ def procnet_challenge():
         return Response(
             generate(),
             mimetype='application/zip',
-            headers={'Content-Disposition': f'attachment; filename="challenge_{username}.zip"'}
+            headers={'Content-Disposition': f'attachment; filename="c2hunt_{username}.zip"'}
         )
 
     except Exception as e:
@@ -657,7 +657,7 @@ def ai_challenge():
         return Response(
             generate(),
             mimetype='application/zip',
-            headers={'Content-Disposition': f'attachment; filename="{username}.zip"'}
+            headers={'Content-Disposition': f'attachment; filename="{username}_socVsLlm.zip"'}
         )
 
     except Exception as e:
@@ -746,7 +746,7 @@ def backdoor_challenge():
         return Response(
             generate(),
             mimetype='application/zip',
-            headers={'Content-Disposition': f'attachment; filename="{username}.zip"'}
+            headers={'Content-Disposition': f'attachment; filename="{username}_backdoor.zip"'}
         )
 
     except Exception as e:
@@ -830,7 +830,7 @@ def springboot_challenge():
         temp_dir = tempfile.mkdtemp()
         output_pcap = os.path.join(temp_dir, f"{username}.pcap")
         log_path = CHALLENGE_PATHS['SpringBoot']['log_file']
-        zip_path = os.path.join(temp_dir, f"{username}.zip")
+        zip_path = os.path.join(temp_dir, f"{username}_springboot.zip")
 
         wrpcap(output_pcap, packets)
 
@@ -847,7 +847,7 @@ def springboot_challenge():
         return Response(
             generate(),
             mimetype='application/zip',
-            headers={'Content-Disposition': f'attachment; filename="{username}.zip"'}
+            headers={'Content-Disposition': f'attachment; filename="{username}_springboot.zip"'}
         )
 
     except Exception as e:
@@ -929,7 +929,7 @@ def shadows_in_the_web_challenge():
         return Response(
             generate(),
             mimetype='application/zip',
-            headers={'Content-Disposition': f'attachment; filename="{username}.zip"'}
+            headers={'Content-Disposition': f'attachment; filename="{username}_shadowinweb.zip"'}
         )
 
     except Exception as e:
@@ -984,7 +984,7 @@ def ai_evasion_challenge():
         out_malware = os.path.join(temp_dir, "malware.js")
         out_obfuscated = os.path.join(temp_dir, "obfuscated.js")
         out_edr = os.path.join(temp_dir, "edr_logs.json")
-        zip_path = os.path.join(temp_dir, f"{username}.zip")
+        zip_path = os.path.join(temp_dir, f"{username}_aiEvasion.zip")
 
         # Copy unchanged files
         shutil.copy(blocker_file, out_blocker)
@@ -1073,7 +1073,7 @@ def api_footprint_challenge():
         # Step 4: Create temp dir, write updated file
         temp_dir = tempfile.mkdtemp()
         output_json_path = os.path.join(temp_dir, f"{username}.json")
-        zip_path = os.path.join(temp_dir, f"{username}_challenge.zip")
+        zip_path = os.path.join(temp_dir, f"{username}_apifootprint.zip")
 
         with open(output_json_path, "w", encoding="utf-8") as f:
             f.write(updated_content)
@@ -1091,7 +1091,7 @@ def api_footprint_challenge():
         return Response(
             generate(),
             mimetype='application/zip',
-            headers={'Content-Disposition': f'attachment; filename="{username}_challenge.zip"'}
+            headers={'Content-Disposition': f'attachment; filename="{username}_apifootprint.zip"'}
         )
 
     except Exception as e:
@@ -1765,7 +1765,7 @@ def bgp_challenge():
 
         temp_dir = tempfile.mkdtemp()
         output_pcap = os.path.join(temp_dir, f"{username}.pcap")
-        zip_path = os.path.join(temp_dir, f"{username}.zip")
+        zip_path = os.path.join(temp_dir, f"{username}_bgp.zip")
 
         # Parameters for BGP DNS exfiltration
         attacker_ip = "203.0.113.10"
@@ -1806,7 +1806,7 @@ def bgp_challenge():
         return Response(
             generate(),
             mimetype='application/zip',
-            headers={'Content-Disposition': f'attachment; filename="{username}.zip"'}
+            headers={'Content-Disposition': f'attachment; filename="{username}_bgp.zip"'}
         )
 
     except Exception as e:
