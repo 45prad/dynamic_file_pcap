@@ -14,7 +14,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 from scapy.all import IP, UDP, DNS, DNSQR, wrpcap, rdpcap, Raw, TCP
 import openpyxl
-from setup import LunarSleeperGenerator
+from setup2 import RealisticChallengeGenerator
 
 app = Flask(__name__)
 CORS(app)
@@ -102,11 +102,11 @@ CHALLENGE_PATHS = {
         'userId_file': os.path.join(CHALLENGES_DIR, 'userIds', 'userId.json'),
     },
     'Jsploit':{
-        'Jsploit1': os.path.join(CHALLENGES_DIR, 'Jsploit', 'JSploit1.7z'),
-        'Jsploit2': os.path.join(CHALLENGES_DIR, 'Jsploit', 'JSploit2.7z'),
-        'Jsploit3': os.path.join(CHALLENGES_DIR, 'Jsploit', 'JSploit3.7z'),
-        'Jsploit4': os.path.join(CHALLENGES_DIR, 'Jsploit', 'JSploit4.7z'),
-        'Jsploit5': os.path.join(CHALLENGES_DIR, 'Jsploit', 'JSploit5.7z'),
+        'Jsploit1': os.path.join(CHALLENGES_DIR, 'Jsploit', 'Jsploit1.txt'),
+        'Jsploit2': os.path.join(CHALLENGES_DIR, 'Jsploit', 'Jsploit2.txt'),
+        'Jsploit3': os.path.join(CHALLENGES_DIR, 'Jsploit', 'Jsploit3.txt'),
+        'Jsploit4': os.path.join(CHALLENGES_DIR, 'Jsploit', 'Jsploit4.txt'),
+        'Jsploit5': os.path.join(CHALLENGES_DIR, 'Jsploit', 'Jsploit5.txt'),
     },
       'splitFiction':{
         'splitFiction1': os.path.join(CHALLENGES_DIR, 'splitFiction', 'splitFiction1.zip'),
@@ -136,11 +136,11 @@ CHALLENGE_PATHS = {
         'json_file':os.path.join(CHALLENGES_DIR, 'MQTT', 'sensor_data.json'),
     },
       'deepDive':{
-        'deepDive1': os.path.join(CHALLENGES_DIR, 'deepDive', 'deepDive1.pcap'),
-        'deepDive2': os.path.join(CHALLENGES_DIR, 'deepDive', 'deepDive2.pcap'),
-        'deepDive3': os.path.join(CHALLENGES_DIR, 'deepDive', 'deepDive3.pcap'),
-        'deepDive4': os.path.join(CHALLENGES_DIR, 'deepDive', 'deepDive4.pcap'),
-        'deepDive5': os.path.join(CHALLENGES_DIR, 'deepDive', 'deepDive5.pcap'),
+        'deepDive1': os.path.join(CHALLENGES_DIR, 'deepDive', 'deepDive1.txt'),
+        'deepDive2': os.path.join(CHALLENGES_DIR, 'deepDive', 'deepDive2.txt'),
+        'deepDive3': os.path.join(CHALLENGES_DIR, 'deepDive', 'deepDive3.txt'),
+        'deepDive4': os.path.join(CHALLENGES_DIR, 'deepDive', 'deepDive4.txt'),
+        'deepDive5': os.path.join(CHALLENGES_DIR, 'deepDive', 'deepDive5.txt'),
     
     },
     'kubernetes':{
@@ -164,7 +164,22 @@ CHALLENGE_PATHS = {
         'Sysmon3': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'Sysmon3.evtx'),
         'Sysmon4': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'Sysmon4.evtx'),
         'Sysmon5': os.path.join(CHALLENGES_DIR, 'BeaconInTheDark', 'Sysmon5.evtx'),
-    }
+    },
+       'supplychain':{
+        'supplychain1': os.path.join(CHALLENGES_DIR, 'supplychain', 'supplychain1.txt'),
+        'supplychain2': os.path.join(CHALLENGES_DIR, 'supplychain', 'supplychain2.txt'),
+        'supplychain3': os.path.join(CHALLENGES_DIR, 'supplychain', 'supplychain3.txt'),
+        'supplychain4': os.path.join(CHALLENGES_DIR, 'supplychain', 'supplychain4.txt'),
+        'supplychain5': os.path.join(CHALLENGES_DIR, 'supplychain', 'supplychain5.txt'),
+    },
+
+     'GoldenTicket':{
+        'GoldenTicket1': os.path.join(CHALLENGES_DIR, 'GoldenTicket', 'GoldenTicket1.txt'),
+        'GoldenTicket2': os.path.join(CHALLENGES_DIR, 'GoldenTicket', 'GoldenTicket2.txt'),
+        'GoldenTicket3': os.path.join(CHALLENGES_DIR, 'GoldenTicket', 'GoldenTicket3.txt'),
+        'GoldenTicket4': os.path.join(CHALLENGES_DIR, 'GoldenTicket', 'GoldenTicket4.txt'),
+        'GoldenTicket5': os.path.join(CHALLENGES_DIR, 'GoldenTicket', 'GoldenTicket5.txt'),
+    },
 }
 
 # Common functions
@@ -275,6 +290,80 @@ def get_pcap():
         return jsonify({"error": "Something went wrong", "details": str(e)}), 500
     
 
+# @app.route('/pcapdeepdive', methods=['POST'])
+# def pcapdeepdive_challenge():
+#     try:
+#         data = request.json
+#         token = data.get("token")
+#         if not token:
+#             return jsonify({"error": "Missing token"}), 400
+
+#         # Get user info from auth endpoint - using POST request
+#         headers = { "Auth-token": token }
+#         res = requests.post(f"{CTF_BASE_URL}/api/auth/getuser", headers=headers)
+
+#         if res.status_code != 200:
+#             return jsonify({"error": "Failed to get user info", "status_code": res.status_code}), res.status_code
+
+#         user_data = res.json()
+#         user_id = user_data["_id"]
+#         username = user_data["name"]
+
+#         # Load the userId.json file from configured path
+#         userid_path = CHALLENGE_PATHS['userIds']['userId_file']
+#         with open(userid_path, 'r') as f:
+#             teams = json.load(f)
+        
+#         # Find the matching team by ID
+#         team = next((t for t in teams if t["id"] == user_id), None)
+#         if not team:
+#             return jsonify({"error": "User ID not found in teams"}), 404
+        
+#         team_index = team["index"]
+        
+#         # Determine which pcap file to use (cycle through 1-5)
+#         pcap_number = ((team_index - 1) % 5) + 1
+       
+#         pcap_filename = f"deepDive{pcap_number}.pcap"
+#         pcap_path = CHALLENGE_PATHS['deepDive'][f"deepDive{pcap_number}"]
+       
+        
+#         if not os.path.exists(pcap_path):
+#             return jsonify({"error": f"PCAP file {pcap_filename} not found"}), 404
+        
+#         # Create a temp directory for processing
+#         temp_dir = tempfile.mkdtemp()
+#         output_filename = f"{username}.pcap"
+#         output_path = os.path.join(temp_dir, output_filename)
+#         zip_path = os.path.join(temp_dir, f"{username}_pcapdeepdive.zip")
+        
+#         # Copy the file with new name
+#         shutil.copy(pcap_path, output_path)
+        
+#         # Create zip file
+#         with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+#             zipf.write(output_path, arcname=output_filename)
+        
+#         # Stream the response and clean up
+#         def generate():
+#             with open(zip_path, 'rb') as f:
+#                 while chunk := f.read(1024):
+#                     yield chunk
+#             shutil.rmtree(temp_dir)
+        
+#         return Response(
+#             generate(),
+#             mimetype='application/zip',
+#             headers={
+#                 'Content-Disposition': f'attachment; filename="{username}_pcapdeepdive.zip"',
+#                 'Content-Type': 'application/zip'
+#             }
+#         )
+
+#     except Exception as e:
+#         return jsonify({"error": str(e)}), 500
+
+
 @app.route('/pcapdeepdive', methods=['POST'])
 def pcapdeepdive_challenge():
     try:
@@ -307,23 +396,23 @@ def pcapdeepdive_challenge():
         team_index = team["index"]
         
         # Determine which pcap file to use (cycle through 1-5)
-        pcap_number = ((team_index - 1) % 5) + 1
+        deepDive_number = ((team_index - 1) % 5) + 1
        
-        pcap_filename = f"deepDive{pcap_number}.pcap"
-        pcap_path = CHALLENGE_PATHS['deepDive'][f"deepDive{pcap_number}"]
+        deepDive_filename = f"deepDive{deepDive_number}.txt"
+        deepDive_path = CHALLENGE_PATHS['deepDive'][f"deepDive{deepDive_number}"]
        
         
-        if not os.path.exists(pcap_path):
-            return jsonify({"error": f"PCAP file {pcap_filename} not found"}), 404
+        if not os.path.exists(deepDive_path):
+            return jsonify({"error": f"golden ticket file {deepDive_filename} not found"}), 404
         
         # Create a temp directory for processing
         temp_dir = tempfile.mkdtemp()
-        output_filename = f"{username}.pcap"
+        output_filename = f"{username}.txt"
         output_path = os.path.join(temp_dir, output_filename)
-        zip_path = os.path.join(temp_dir, f"{username}_pcapdeepdive.zip")
+        zip_path = os.path.join(temp_dir, f"{username}_deepDive.zip")
         
         # Copy the file with new name
-        shutil.copy(pcap_path, output_path)
+        shutil.copy(deepDive_path, output_path)
         
         # Create zip file
         with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
@@ -340,82 +429,14 @@ def pcapdeepdive_challenge():
             generate(),
             mimetype='application/zip',
             headers={
-                'Content-Disposition': f'attachment; filename="{username}_pcapdeepdive.zip"',
+                'Content-Disposition': f'attachment; filename="{username}_deepDive.zip"',
                 'Content-Type': 'application/zip'
             }
         )
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
-# @app.route('/pcapdeepdive', methods=['POST'])
-# def pcap_deep_dive():
-#     data = request.json
-#     token = data.get("token")
-
-#     if not token:
-#         return jsonify({"error": "Missing token"}), 400
-
-#     try:
-#         headers = {"Auth-token": token}
-#         response = requests.get(
-#             f"{CTF_BASE_URL}/api/challenges/get-flag/{deepDivechallenge_id}",
-#             headers=headers
-#         )
-#         if response.status_code != 200:
-#             return jsonify({"error": "Failed to get flag"}), response.status_code
-
-#         flag_data = response.json()
-#         flag = flag_data['flag']
-#         username = flag_data['username']
-
-#         df = pd.read_excel(CHALLENGE_PATHS['pcapdeepdive']['excel_path'], header=None)
-#         match = df[df[0] == flag]
-#         if match.empty:
-#             return jsonify({"error": "Flag not found in Excel sheet"}), 404
-
-#         replacement_url = match.iloc[0, 2].encode()
-#         temp_dir = tempfile.mkdtemp()
-#         output_pcap = os.path.join(temp_dir, f"{username}.pcap")
-#         zip_path = os.path.join(temp_dir, f"{username}.zip")
-
-#         packets = rdpcap(CHALLENGE_PATHS['pcapdeepdive']['pcap_path'])
-#         target_index = -1
-
-#         for i, pkt in enumerate(packets):
-#             if Raw in pkt and CHALLENGE_PATHS['pcapdeepdive']['original_url'] in pkt[Raw].load:
-#                 target_index = i
-#                 original_payload = pkt[Raw].load
-#                 modified_payload = original_payload.replace(
-#                     CHALLENGE_PATHS['pcapdeepdive']['original_url'], 
-#                     replacement_url
-#                 )
-#                 pkt[Raw].load = modified_payload
-#                 break
-
-#         if target_index == -1:
-#             shutil.rmtree(temp_dir)
-#             return jsonify({"error": "No packet found with the specified URL"}), 404
-
-#         wrpcap(output_pcap, packets)
-
-#         with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
-#             zipf.write(output_pcap, arcname=f"{username}.pcap")
-
-#         def generate():
-#             with open(zip_path, 'rb') as f:
-#                 while chunk := f.read(1024):
-#                     yield chunk
-#             shutil.rmtree(temp_dir)
-
-#         return Response(
-#             generate(),
-#             mimetype='application/zip',
-#             headers={'Content-Disposition': f'attachment; filename="{username}.zip"'}
-#         )
-
-#     except Exception as e:
-#         return jsonify({"error": "Processing failed", "details": str(e)}), 500
+    
 
 @app.route('/chatgptchallenge', methods=['POST'])
 def chatgpt_challenge():
@@ -1419,6 +1440,64 @@ def lemondock_challenge():
 #     except Exception as e:
 #         return jsonify({"error": "Processing failed", "details": str(e)}), 500
 
+# @app.route('/jsploit', methods=['POST'])
+# def jsploit_challenge():
+#     try:
+#         data = request.json
+#         token = data.get("token")
+#         if not token:
+#             return jsonify({"error": "Missing token"}), 400
+
+#         # Get user info from auth endpoint - using POST request
+#         headers = { "Auth-token": token }
+#         res = requests.post(f"{CTF_BASE_URL}/api/auth/getuser", headers=headers)
+
+#         if res.status_code != 200:
+#             return jsonify({"error": "Failed to get user info", "status_code": res.status_code}), res.status_code
+
+#         user_data = res.json()
+#         user_id = user_data["_id"]
+#         username = user_data["name"]
+
+#         # Load the userId.json file from configured path
+#         userid_path = CHALLENGE_PATHS['userIds']['userId_file']
+#         with open(userid_path, 'r') as f:
+#             teams = json.load(f)
+        
+#         # Find the matching team by ID
+#         team = next((t for t in teams if t["id"] == user_id), None)
+#         if not team:
+#             return jsonify({"error": "User ID not found in teams"}), 404
+        
+#         team_index = team["index"]
+        
+#         # Determine which Jsploit file to use (cycle through 1-5)
+#         jsploit_number = ((team_index - 1) % 5) + 1
+#         jsploit_filename = f"JSploit{jsploit_number}.7z"
+#         jsploit_path = CHALLENGE_PATHS['Jsploit'][f"Jsploit{jsploit_number}"]
+        
+#         if not os.path.exists(jsploit_path):
+#             return jsonify({"error": f"Jsploit file {jsploit_filename} not found"}), 404
+        
+#         # Stream the response directly
+#         def generate():
+#             with open(jsploit_path, 'rb') as f:
+#                 while chunk := f.read(1024):
+#                     yield chunk
+        
+#         return Response(
+#             generate(),
+#             mimetype='application/x-7z-compressed',
+#             headers={
+#                 'Content-Disposition': f'attachment; filename="{username}"',
+#                 'Content-Type': 'application/x-7z-compressed'
+#             }
+#         )
+
+#     except Exception as e:
+#         return jsonify({"error": str(e)}), 500
+    
+
 @app.route('/jsploit', methods=['POST'])
 def jsploit_challenge():
     try:
@@ -1450,31 +1529,48 @@ def jsploit_challenge():
         
         team_index = team["index"]
         
-        # Determine which Jsploit file to use (cycle through 1-5)
+        # Determine which pcap file to use (cycle through 1-5)
         jsploit_number = ((team_index - 1) % 5) + 1
-        jsploit_filename = f"JSploit{jsploit_number}.7z"
+       
+        jsploit_filename = f"Jsploit{jsploit_number}.txt"
         jsploit_path = CHALLENGE_PATHS['Jsploit'][f"Jsploit{jsploit_number}"]
+       
         
         if not os.path.exists(jsploit_path):
-            return jsonify({"error": f"Jsploit file {jsploit_filename} not found"}), 404
+            return jsonify({"error": f"jsploit file {jsploit_filename} not found"}), 404
         
-        # Stream the response directly
+        # Create a temp directory for processing
+        temp_dir = tempfile.mkdtemp()
+        output_filename = f"{username}.txt"
+        output_path = os.path.join(temp_dir, output_filename)
+        zip_path = os.path.join(temp_dir, f"{username}_Jsploit.zip")
+        
+        # Copy the file with new name
+        shutil.copy(jsploit_path, output_path)
+        
+        # Create zip file
+        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(output_path, arcname=output_filename)
+        
+        # Stream the response and clean up
         def generate():
-            with open(jsploit_path, 'rb') as f:
+            with open(zip_path, 'rb') as f:
                 while chunk := f.read(1024):
                     yield chunk
+            shutil.rmtree(temp_dir)
         
         return Response(
             generate(),
-            mimetype='application/x-7z-compressed',
+            mimetype='application/zip',
             headers={
-                'Content-Disposition': f'attachment; filename="{username}"',
-                'Content-Type': 'application/x-7z-compressed'
+                'Content-Disposition': f'attachment; filename="{username}_Jsploit.zip"',
+                'Content-Type': 'application/zip'
             }
         )
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
 
 
 @app.route('/cloudTrail', methods=['POST'])
@@ -1513,7 +1609,7 @@ def cloud_trail_challenge():
         zip_path = os.path.join(temp_dir, f"{username}_cloudtrail_challenge.zip")
 
         # Generate the challenge data
-        generator = LunarSleeperGenerator(team_id)
+        generator = RealisticChallengeGenerator(team_id)
         challenge_data = generator.generate_complete_challenge()
 
         # Save to JSON file
@@ -2106,7 +2202,155 @@ def BeaconInTheDark_challenge():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
 
+@app.route('/supplychain', methods=['POST'])
+def supplychain_challenge():
+    try:
+        data = request.json
+        token = data.get("token")
+        if not token:
+            return jsonify({"error": "Missing token"}), 400
+
+        # Get user info from auth endpoint - using POST request
+        headers = { "Auth-token": token }
+        res = requests.post(f"{CTF_BASE_URL}/api/auth/getuser", headers=headers)
+
+        if res.status_code != 200:
+            return jsonify({"error": "Failed to get user info", "status_code": res.status_code}), res.status_code
+
+        user_data = res.json()
+        user_id = user_data["_id"]
+        username = user_data["name"]
+
+        # Load the userId.json file from configured path
+        userid_path = CHALLENGE_PATHS['userIds']['userId_file']
+        with open(userid_path, 'r') as f:
+            teams = json.load(f)
+        
+        # Find the matching team by ID
+        team = next((t for t in teams if t["id"] == user_id), None)
+        if not team:
+            return jsonify({"error": "User ID not found in teams"}), 404
+        
+        team_index = team["index"]
+        
+        # Determine which pcap file to use (cycle through 1-5)
+        supplychain_number = ((team_index - 1) % 5) + 1
+       
+        supplychain_filename = f"supplychain{supplychain_number}.txt"
+        supplychain_path = CHALLENGE_PATHS['supplychain'][f"supplychain{supplychain_number}"]
+       
+        
+        if not os.path.exists(supplychain_path):
+            return jsonify({"error": f"supplychain file {supplychain_filename} not found"}), 404
+        
+        # Create a temp directory for processing
+        temp_dir = tempfile.mkdtemp()
+        output_filename = f"{username}.txt"
+        output_path = os.path.join(temp_dir, output_filename)
+        zip_path = os.path.join(temp_dir, f"{username}_supplychain.zip")
+        
+        # Copy the file with new name
+        shutil.copy(supplychain_path, output_path)
+        
+        # Create zip file
+        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(output_path, arcname=output_filename)
+        
+        # Stream the response and clean up
+        def generate():
+            with open(zip_path, 'rb') as f:
+                while chunk := f.read(1024):
+                    yield chunk
+            shutil.rmtree(temp_dir)
+        
+        return Response(
+            generate(),
+            mimetype='application/zip',
+            headers={
+                'Content-Disposition': f'attachment; filename="{username}_supplychain.zip"',
+                'Content-Type': 'application/zip'
+            }
+        )
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+
+@app.route('/goldenticket', methods=['POST'])
+def GoldenTicket_challenge():
+    try:
+        data = request.json
+        token = data.get("token")
+        if not token:
+            return jsonify({"error": "Missing token"}), 400
+
+        # Get user info from auth endpoint - using POST request
+        headers = { "Auth-token": token }
+        res = requests.post(f"{CTF_BASE_URL}/api/auth/getuser", headers=headers)
+
+        if res.status_code != 200:
+            return jsonify({"error": "Failed to get user info", "status_code": res.status_code}), res.status_code
+
+        user_data = res.json()
+        user_id = user_data["_id"]
+        username = user_data["name"]
+
+        # Load the userId.json file from configured path
+        userid_path = CHALLENGE_PATHS['userIds']['userId_file']
+        with open(userid_path, 'r') as f:
+            teams = json.load(f)
+        
+        # Find the matching team by ID
+        team = next((t for t in teams if t["id"] == user_id), None)
+        if not team:
+            return jsonify({"error": "User ID not found in teams"}), 404
+        
+        team_index = team["index"]
+        
+        # Determine which pcap file to use (cycle through 1-5)
+        GoldenTicket_number = ((team_index - 1) % 5) + 1
+       
+        GoldenTicket_filename = f"GoldenTicket{GoldenTicket_number}.txt"
+        GoldenTicket_path = CHALLENGE_PATHS['GoldenTicket'][f"GoldenTicket{GoldenTicket_number}"]
+       
+        
+        if not os.path.exists(GoldenTicket_path):
+            return jsonify({"error": f"golden ticket file {GoldenTicket_filename} not found"}), 404
+        
+        # Create a temp directory for processing
+        temp_dir = tempfile.mkdtemp()
+        output_filename = f"{username}.txt"
+        output_path = os.path.join(temp_dir, output_filename)
+        zip_path = os.path.join(temp_dir, f"{username}_goldenticket.zip")
+        
+        # Copy the file with new name
+        shutil.copy(GoldenTicket_path, output_path)
+        
+        # Create zip file
+        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(output_path, arcname=output_filename)
+        
+        # Stream the response and clean up
+        def generate():
+            with open(zip_path, 'rb') as f:
+                while chunk := f.read(1024):
+                    yield chunk
+            shutil.rmtree(temp_dir)
+        
+        return Response(
+            generate(),
+            mimetype='application/zip',
+            headers={
+                'Content-Disposition': f'attachment; filename="{username}_goldenticket.zip"',
+                'Content-Type': 'application/zip'
+            }
+        )
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
 
 
 if __name__ == '__main__':

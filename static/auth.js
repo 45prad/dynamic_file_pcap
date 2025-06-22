@@ -85,6 +85,15 @@ window.onload = async () => {
       await fetchBeaconInTheDarkChallenge();
     }
 
+    else if (path.endsWith("/supplychain")) {
+      await fetchsupplyChainChallenge();
+    }
+
+    
+    else if (path.endsWith("/goldenticket")) {
+      await fetchgoldenTicketChallenge();
+    }
+
      else {
        await ensureAuthenticated();
     }
@@ -206,7 +215,7 @@ async function fetchLemonDuckChallenge() {
 
 async function fetchJsploitChallenge() {
   const token = await ensureAuthenticated();
-  return download7z(`${PROXY_API}/jsploit`, { token });
+  return downloadZip(`${PROXY_API}/jsploit`, { token });
 }
 
 async function fetchCloudTrailChallenge() {
@@ -259,6 +268,16 @@ async function fetchshadowInCiMassiveChallenge() {
 async function fetchBeaconInTheDarkChallenge() {
   const token = await ensureAuthenticated();
   return downloadZip(`${PROXY_API}/BeaconInTheDark`, { token });
+}
+
+async function fetchsupplyChainChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/supplychain`, { token });
+}
+
+async function fetchgoldenTicketChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/goldenticket`, { token });
 }
 
 
