@@ -1,33 +1,35 @@
-
 import hashlib
 import json
+import base64
 
-# Expected SHA-256 hashes for hidden IoCs
+
+def Encoded(s):
+    encoded = base64.urlsafe_b64encode(s.encode()).decode()
+    return encoded
+
 expected_hashes = {
-    "1aa4cb0bcca76e92e30677e809bb3d4b5c066715ef4d558184e319496bcc5125",  
-    "1bbd174404efbce95f1af489ef93f4aa0f4d55718f24c3504682216afa7b7fb1",  
-    "c4d0cf241a1bfa1c8bf4cf24e8f89d2ab786a284a39adb2fc8df7ea14e73c154"   
+    "067b3418a2cd4783cf2e725ddc690fbefff1acb94969a9651b4bd34baaef2bde",  #  
+    "09aa5090691740cbec29b0a8bbbe1350e7ad8f0fb14eff3e8870a438338d349c",  # 
+    "7ff98bd0117b14c21b97fb36c65d69c0a06f65341595ebc9be74e719cbf3d2f2"   # 
 }
 
-# Load config.json and extract tokens
+
 with open("config.json", "r", encoding="utf-8") as f:
     config = json.load(f)
 
-
 tokens = config.get("blocked_tokens", [])
 
-# Compute hash of each token and check against expected
 matched_hashes = set()
 for token in tokens:
-    token_hash = hashlib.sha256(token.encode()).hexdigest()
+    encoded_token = Encoded(token)
+    token_hash = hashlib.sha256(encoded_token.encode()).hexdigest()
     if token_hash in expected_hashes:
         matched_hashes.add(token_hash)
 
-# Final result
 if matched_hashes == expected_hashes:
     print("✅ SUCCESS: All IoCs matched using config.json.")
     
 else:
     print("❌ Incomplete or failed detection.")
     print(f"Matched: {len(matched_hashes)} / {len(expected_hashes)}")
-    print("Hint: Check if config.json contains all required tokens.")
+    print("Hint: Check if config.json contains all required tokens (after base92 encoding).")

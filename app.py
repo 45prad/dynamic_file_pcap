@@ -1605,7 +1605,7 @@ def cloud_trail_challenge():
 
         # Create temp directory
         temp_dir = tempfile.mkdtemp()
-        output_json = os.path.join(temp_dir, f"lunar_sleeper_{team_id}.json")
+        output_json = os.path.join(temp_dir, f"incident_data_{team_id}.json")
         zip_path = os.path.join(temp_dir, f"{username}_cloudtrail_challenge.zip")
 
         # Generate the challenge data
@@ -1618,7 +1618,7 @@ def cloud_trail_challenge():
 
         # Create zip file with the JSON
         with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
-            zipf.write(output_json, arcname=f"lunar_sleeper_{team_id}.json")
+            zipf.write(output_json, arcname=f"incident_data_{team_id}.json")
 
         # Stream the response
         def generate():
