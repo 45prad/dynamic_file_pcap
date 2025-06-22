@@ -14,7 +14,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 from scapy.all import IP, UDP, DNS, DNSQR, wrpcap, rdpcap, Raw, TCP
 import openpyxl
-from setup2 import RealisticChallengeGenerator
+from setup_fin import RealisticChallengeGenerator
 
 app = Flask(__name__)
 CORS(app)
