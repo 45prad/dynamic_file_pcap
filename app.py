@@ -15,6 +15,7 @@ from datetime import datetime, timedelta
 from scapy.all import IP, UDP, DNS, DNSQR, wrpcap, rdpcap, Raw, TCP
 import openpyxl
 from setup_fin import RealisticChallengeGenerator
+from singleteam import TeamChallengeGenerator
 
 app = Flask(__name__)
 CORS(app)
@@ -42,6 +43,7 @@ cloudTrail_id="6846b00b9d3ac335c86a5fc1"
 TimeSeriesTrap_id="68503fd1e0ef870ef388898d"
 BGP_id="6850406fe0ef870ef3888a11"
 kubernetes_id="685000cbe0ef870ef3887a71"
+anomally_id="68580589e0ef870ef3894c3d"
 
 
 # Path configurations for each challenge
@@ -519,7 +521,7 @@ def procnet_challenge():
         temp_dir = tempfile.mkdtemp()
         input_pcap = os.path.join(temp_dir, "Employee_edited.pcap")
         output_pcap = os.path.join(temp_dir, f"{username}.pcap")
-        zip_file = os.path.join(temp_dir, 'challenge.zip')
+        zip_file = os.path.join(temp_dir, 'c2hunt_challenge.zip')
 
         shutil.copy(CHALLENGE_PATHS['procnet']['pcap_path'], input_pcap)
 
@@ -1041,7 +1043,7 @@ def ai_evasion_challenge():
         return Response(
             generate(),
             mimetype='application/zip',
-            headers={'Content-Disposition': f'attachment; filename="{username}.zip"'}
+            headers={'Content-Disposition': f'attachment; filename="{username}_ai_evasion.zip"'}
         )
 
     except Exception as e:
@@ -1754,7 +1756,7 @@ def splitFiction_challenge():
             generate(),
             mimetype='application/zip',
             headers={
-                'Content-Disposition': f'attachment; filename="{username}"',
+                'Content-Disposition': f'attachment; filename="{username}_splitFiction.zip"',
                 'Content-Type': 'application/zip'
             }
         )
@@ -2121,7 +2123,7 @@ def shadowInCiMassive_challenge():
             generate(),
             mimetype='application/zip',
             headers={
-                'Content-Disposition': f'attachment; filename="{username}"',
+                'Content-Disposition': f'attachment; filename="{username}_shadowInCi"',
                 'Content-Type': 'application/zip'
             }
         )
@@ -2351,6 +2353,61 @@ def GoldenTicket_challenge():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
+@app.route('/anomally', methods=['POST'])
+def ai_anomaly():
+    try:
+        data = request.json
+        token = data.get("token")
+        if not token:
+            return jsonify({"error": "Missing token"}), 400
+
+        headers = { "Auth-token": token }
+        res = requests.get(f"{CTF_BASE_URL}/api/challenges/get-flag/{anomally_id}", headers=headers)
+
+        if res.status_code != 200:
+            return jsonify({"error": "Failed to get flag"}), res.status_code
+
+        res_data = res.json()
+        username = res_data["username"]
+        
+        # Generate team_id from first 6 digits of base64 encoded username
+        username_bytes = username.encode('ascii')
+        base64_bytes = base64.b64encode(username_bytes)
+        base64_username = base64_bytes.decode('ascii')
+        team_id = base64_username[:4]  # First 6 characters of base64
+        
+        # Generate the challenge
+        generator = TeamChallengeGenerator()
+        challenge_data = generator.generate_team_challenge(
+            team_name=username,
+            team_id=team_id,
+            output_dir=tempfile.gettempdir()
+        )
+        
+        # Paths for files
+        json_path = challenge_data['filename']
+        zip_path = os.path.join(tempfile.gettempdir(), f"{username}_ai_anomaly_challenge.zip")
+
+        # Create zip file
+        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(json_path, arcname=f"ai_anomaly_challenge_{username}.json")
+
+        def generate():
+            with open(zip_path, 'rb') as f:
+                while chunk := f.read(1024):
+                    yield chunk
+            # Clean up
+            os.unlink(json_path)
+            os.unlink(zip_path)
+
+        return Response(
+            generate(),
+            mimetype='application/zip',
+            headers={'Content-Disposition': f'attachment; filename="{username}_ai_anomaly_challenge.zip"'}
+        )
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == '__main__':

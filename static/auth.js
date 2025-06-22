@@ -94,6 +94,10 @@ window.onload = async () => {
       await fetchgoldenTicketChallenge();
     }
 
+     else if (path.endsWith("/AIanomally")) {
+      await fetchAIanomallyChallenge();
+    }
+
      else {
        await ensureAuthenticated();
     }
@@ -278,6 +282,12 @@ async function fetchsupplyChainChallenge() {
 async function fetchgoldenTicketChallenge() {
   const token = await ensureAuthenticated();
   return downloadZip(`${PROXY_API}/goldenticket`, { token });
+}
+
+
+async function fetchAIanomallyChallenge() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/anomally`, { token });
 }
 
 
