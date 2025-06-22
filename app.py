@@ -2052,7 +2052,7 @@ def kubernetes_challenge():
         final_zip_path = os.path.join(temp_dir, f"{username}_kubernetes_challenge.zip")
         with zipfile.ZipFile(final_zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
             # Add carany_image_build.zip
-            zipf.write(carany_zip_path, arcname="carany_image_build.zip")
+            zipf.write(carany_zip_path, arcname="canary_image_build.zip")
             # Add other individual files
             for file_key in additional_files:
                 file_path = os.path.join(temp_dir, os.path.basename(CHALLENGE_PATHS['kubernetes'][file_key]))
@@ -2123,7 +2123,7 @@ def shadowInCiMassive_challenge():
             generate(),
             mimetype='application/zip',
             headers={
-                'Content-Disposition': f'attachment; filename="{username}_shadowInCi"',
+                'Content-Disposition': f'attachment; filename="{username}_shadowInCi.zip"',
                 'Content-Type': 'application/zip'
             }
         )
