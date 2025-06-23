@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template, Response
 from flask_cors import CORS
 import requests
 import os
+import io
 import json
 import tempfile
 import subprocess
@@ -15,7 +16,7 @@ from datetime import datetime, timedelta
 from scapy.all import IP, UDP, DNS, DNSQR, wrpcap, rdpcap, Raw, TCP
 import openpyxl
 from setup_fin import RealisticChallengeGenerator
-from singleteam import TeamChallengeGenerator
+from singleteam import generate_team_challenge
 
 app = Flask(__name__)
 CORS(app)
@@ -2352,7 +2353,6 @@ def GoldenTicket_challenge():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    
 @app.route('/anomally', methods=['POST'])
 def ai_anomaly():
     try:
@@ -2369,46 +2369,33 @@ def ai_anomaly():
 
         res_data = res.json()
         username = res_data["username"]
+        flag = res_data['flag']
+        team_id = flag.split('_')[-1].rstrip('}')
         
-        # Generate team_id from first 6 digits of base64 encoded username
-        username_bytes = username.encode('ascii')
-        base64_bytes = base64.b64encode(username_bytes)
-        base64_username = base64_bytes.decode('ascii')
-        team_id = base64_username[:4]  # First 6 characters of base64
-        
-        # Generate the challenge
-        generator = TeamChallengeGenerator()
-        challenge_data = generator.generate_team_challenge(
+        # Generate the challenge file
+        filename = generate_team_challenge(
             team_name=username,
-            team_id=team_id,
-            output_dir=tempfile.gettempdir()
+            team_id=team_id
         )
         
-        # Paths for files
-        json_path = challenge_data['filename']
-        zip_path = os.path.join(tempfile.gettempdir(), f"{username}_ai_anomaly_challenge.zip")
-
-        # Create zip file
-        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
-            zipf.write(json_path, arcname=f"ai_anomaly_challenge_{username}.json")
-
-        def generate():
-            with open(zip_path, 'rb') as f:
-                while chunk := f.read(1024):
-                    yield chunk
-            # Clean up
-            os.unlink(json_path)
-            os.unlink(zip_path)
-
+        # Create zip file in memory
+        zip_buffer = io.BytesIO()
+        with zipfile.ZipFile(zip_buffer, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(filename, arcname=f"ai_anomaly_challenge_{username}.json")
+        
+        # Clean up the JSON file
+        os.unlink(filename)
+        
+        # Prepare response
+        zip_buffer.seek(0)
         return Response(
-            generate(),
+            zip_buffer,
             mimetype='application/zip',
             headers={'Content-Disposition': f'attachment; filename="{username}_ai_anomaly_challenge.zip"'}
         )
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
 
 if __name__ == '__main__':
     app.run(debug=True, port=5002)
