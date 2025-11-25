@@ -11,6 +11,12 @@ window.onload = async () => {
       else if  (path.endsWith("/signalinvoid")) {
       await fetchsatcomm3();
     }
+
+     else if  (path.endsWith("/satcomm4")) {
+      await fetchsatcomm4();
+    }
+
+    
    
 
      else {
@@ -75,6 +81,11 @@ async function fetchUAV() {
 async function fetchsatcomm3() {
   const token = await ensureAuthenticated();
   return downloadZip(`${PROXY_API}/signalInVoid`, { token });
+}
+
+async function fetchsatcomm4() {
+  const token = await ensureAuthenticated();
+  return downloadZip(`${PROXY_API}/satcomm4`, { token });
 }
 
 

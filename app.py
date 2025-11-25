@@ -33,6 +33,7 @@ CHALLENGES_DIR = os.path.join(BASE_DIR, 'challenges')
 CTF_BASE_URL = "http://35.154.8.207:8010"
 UAV_CHALLENGE_ID = "69221aa7723650822dddef59"
 SATCOMM3_CHALLENGE_ID = "6924664467c3bd541ff64b93"
+SATCOMM4_CHALLENGE_ID = "6924898567c3bd541ff64c2e"
 
 # Path configurations for each challenge
 CHALLENGES_PATHS = {
@@ -578,5 +579,232 @@ def satcomm3_challenge():
         return jsonify({"error": "Failed to connect to flag service", "details": str(e)}), 502
     except Exception as e:
         return jsonify({"error": "Processing failed", "details": str(e)}), 500
+
+
+@app.route('/satcomm4', methods=['POST'])
+def satcomm4_challenge():
+    data = request.json
+    token = data.get("token")
+
+    if not token:
+        return jsonify({"error": "Missing token"}), 400
+
+    try:
+        # -----------------------------------------
+        # 1. Fetch dynamic flag from CTF platform
+        # -----------------------------------------
+        headers = {"AuthToken": token}
+        response = requests.get(
+            f"{CTF_BASE_URL}/api/dynamicFlags/userFlag/{SATCOMM4_CHALLENGE_ID}",  # You'll need to define this
+            headers=headers,
+            timeout=30
+        )
+
+        if response.status_code != 200:
+            return jsonify({"error": "Failed to fetch user flag", "status_code": response.status_code}), response.status_code
+
+        flag_data = response.json()
+        full_flag = flag_data.get('flag', '')
+        
+        if not full_flag:
+            return jsonify({"error": "No flag received from API"}), 500
+
+        print(f"Full flag received: {full_flag}")
+
+        # Extract flag content from FLAG{content} or flag{content}
+        flag_content = ""
+        if full_flag.startswith("FLAG{"):
+            flag_content = full_flag[5:-1]  # Remove FLAG{ and }
+        elif full_flag.startswith("flag{"):
+            flag_content = full_flag[5:-1]  # Remove flag{ and }
+        else:
+            flag_content = full_flag  # Use as-is if no wrapper
+
+        print(f"Flag content: {flag_content}")
+
+        # -----------------------------------------
+        # 2. Create temporary directory for file generation
+        # -----------------------------------------
+        temp_dir = tempfile.mkdtemp()
+        
+        try:
+            # -----------------------------------------
+            # 3. Generate bus_logs.bin with the flag embedded
+            # -----------------------------------------
+            def generate_bus_logs(flag: str, output_dir: str) -> str:
+                bus_logs_path = os.path.join(output_dir, "bus_logs.bin")
+                
+                MAGIC = b"BLOG"
+                VERSION = 1
+                FRAME_STRUCT = struct.Struct("<I I B B 8s")  # ts_ms, can_id, dlc, flags, data[8]
+                STARTRACK_CAN_ID = 0x0000042F
+                FLAG_STARTRACK = 0x01  # bit0 == 1
+
+                def build_header_text() -> bytes:
+                    return (
+                        b"HELIOS-IV BUS LOG SNAPSHOT\n"
+                        b"Format: ts_ms,u32_can_id,dlc,flags,data[8]\n"
+                        b"flags bit0=1 => startracker\n"
+                    )
+
+                def chunk8(b: bytes):
+                    for i in range(0, len(b), 8):
+                        yield b[i:i+8]
+
+                header_text = build_header_text()
+                header_len = len(header_text)
+
+                # Binary header: magic + version + header_len
+                header = struct.pack("<4sII", MAGIC, VERSION, header_len) + header_text
+
+                frames = []
+
+                # --- Some non-startracker "noise" frames ---
+                frames.append(FRAME_STRUCT.pack(100, 0x00000123, 8, 0x00, b"\x01\x02\x03\x04TEST"))
+                frames.append(FRAME_STRUCT.pack(200, 0x00000055, 4, 0x00, b"ABCD\x00\x00\x00\x00"))
+                frames.append(FRAME_STRUCT.pack(300, 0x00000099, 8, 0x00, b"\x10\x20\x30\x40\x50\x60\x70\x80"))
+
+                # --- Startracker frames with flag embedded ---
+                # We interleave 0x00 between characters, so `strings` doesn't show a clean word.
+                constellation_plain = f"CONSTELLATION:FLAG{{{flag}}}\n".encode()
+                encoded = bytearray()
+                for c in constellation_plain:
+                    encoded.append(c)
+                    encoded.append(0x00)  # break up ASCII sequence
+
+                # pad to multiple of 8 bytes for CAN payloads
+                while len(encoded) % 8 != 0:
+                    encoded.append(0x00)
+
+                ts = 1000
+                for payload in chunk8(bytes(encoded)):
+                    frames.append(
+                        FRAME_STRUCT.pack(
+                            ts,
+                            STARTRACK_CAN_ID,
+                            8,                 # dlc
+                            FLAG_STARTRACK,    # flags bit0=1 => startracker
+                            payload,
+                        )
+                    )
+                    ts += 100
+
+                body = b"".join(frames)
+                with open(bus_logs_path, 'wb') as f:
+                    f.write(header + body)
+                
+                print(f"Generated bus_logs.bin: {len(header)}-byte header, {len(frames)} frames")
+                return bus_logs_path
+
+            # -----------------------------------------
+            # 4. Generate ram_dump.bin using the bus_logs.bin
+            # -----------------------------------------
+            def generate_ram_dump(bus_logs_path: str, output_dir: str) -> str:
+                ram_dump_path = os.path.join(output_dir, "ram_dump.bin")
+                
+                MAGIC = b"HLIV"
+                VERSION = 1
+                STARTRACKER_CAN_ID = 0x0000042F
+                LOG_OFFSET = 0x00000200  # where we embed the bus logs in this fake RAM
+                CRC_RAM = 0xABCD
+                CRC_LOGS = 0x1234
+
+                with open(bus_logs_path, 'rb') as f:
+                    bus_bytes = f.read()
+                
+                log_length = len(bus_bytes)
+
+                # 1) Build binary header
+                header = struct.pack(
+                    "<4sIIIIHH",
+                    MAGIC,
+                    VERSION,
+                    STARTRACKER_CAN_ID,
+                    LOG_OFFSET,
+                    log_length,
+                    CRC_RAM,
+                    CRC_LOGS,
+                )
+
+                # 2) Build a small "registers" section with bit-flips
+                true_reg1 = 0xDEADBEEF
+                true_reg2 = 0xCAFEBABE
+                true_status = 0b00000101  # bit0: startracker enabled, bit2: CRC OK
+
+                # Corrupt one bit in reg2 and one bit in status to simulate CME
+                corrupt_reg2 = true_reg2 ^ (1 << 7)   # flip bit 7
+                corrupt_status = true_status ^ (1 << 2)
+
+                regs = struct.pack("<IIB", true_reg1, corrupt_reg2, corrupt_status)
+
+                # 3) Human-readable guidance strings (to be seen with `strings`)
+                text = (
+                    b"HELIOS-IV FDIR DEBUG SNAPSHOT\n"
+                    b"Snapshot captured after suspected CME bit-flip event.\n"
+                    b"Fields below are what the flight software THINKS is true.\n"
+                    b"Use them to repair the on-board view of the bus.\n"
+                    b"STARTRACK_CAN_ID=0x%08X\n" % STARTRACKER_CAN_ID +
+                    b"LOG_OFFSET=0x%08X\n" % LOG_OFFSET +
+                    b"LOG_LENGTH=%d bytes\n" % log_length +
+                    b"CRC_RAM_EXPECTED=0x%04X\n" % CRC_RAM +
+                    b"CRC_LOGS_EXPECTED=0x%04X\n" % CRC_LOGS
+                )
+
+                # 4) Pad from end of (header + regs + text) up to LOG_OFFSET
+                pre_logs = header + regs + text
+                if len(pre_logs) > LOG_OFFSET:
+                    raise RuntimeError("Pre-log region longer than LOG_OFFSET, increase LOG_OFFSET.")
+
+                padding = b"\x00" * (LOG_OFFSET - len(pre_logs))
+
+                # 5) Final RAM image: [header|regs|text|padding|bus_logs]
+                ram_image = pre_logs + padding + bus_bytes
+
+                with open(ram_dump_path, 'wb') as f:
+                    f.write(ram_image)
+                
+                print(f"Generated ram_dump.bin ({len(ram_image)} bytes) with embedded logs at 0x{LOG_OFFSET:08X}")
+                return ram_dump_path
+
+            # Generate the files
+            bus_logs_path = generate_bus_logs(flag_content, temp_dir)
+            ram_dump_path = generate_ram_dump(bus_logs_path, temp_dir)
+
+            # -----------------------------------------
+            # 5. Create ZIP file with both binaries
+            # -----------------------------------------
+            zip_path = os.path.join(temp_dir, "satcomm4_challenge.zip")
+            with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
+                zf.write(bus_logs_path, arcname="bus_logs.bin")
+                zf.write(ram_dump_path, arcname="ram_dump.bin")
+
+            # -----------------------------------------
+            # 6. Stream ZIP to client
+            # -----------------------------------------
+            def generate():
+                with open(zip_path, "rb") as f:
+                    while chunk := f.read(4096):
+                        yield chunk
+                # Cleanup
+                shutil.rmtree(temp_dir)
+
+            return Response(
+                generate(),
+                mimetype='application/zip',
+                headers={
+                    "Content-Disposition": "attachment; filename=satcomm4_challenge.zip",
+                    "Content-Type": "application/zip"
+                }
+            )
+
+        except Exception as e:
+            shutil.rmtree(temp_dir)
+            raise e
+
+    except requests.RequestException as e:
+        return jsonify({"error": "Failed to connect to flag service", "details": str(e)}), 502
+    except Exception as e:
+        return jsonify({"error": "Processing failed", "details": str(e)}), 500
+
 if __name__ == '__main__':
     app.run(debug=True, port=5002)
