@@ -1,5 +1,0 @@
-Dec 3 13:44:55 bgp-monitor sshd[3140]: Failed password for root from 203.0.113.10 port 10000 ssh2  
-Dec 3 13:45:01 bgp-monitor sshd[3140]: Accepted publickey for root from 203.0.113.10 port 30000 ssh2  
-Dec 3 13:45:08 bgp-monitor bash: tcpdump -i eth0 -w /tmp/capture.pcap  
-Dec 3 13:45:10 bgp-monitor cron[3156]: (root) CMD (python3 /root/scripts/obf_extract.py)  
-Dec 3 13:45:12 bgp-monitor syslogd: logging stopped temporarily  

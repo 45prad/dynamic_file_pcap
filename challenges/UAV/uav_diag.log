@@ -1,0 +1,55 @@
+[2025-11-19 02:14:55] UAV-M1 System Boot
+Firmware Version: 4.7.2-f
+Integrity Check: FAILED (expected 0x9f02ab33, got 0x9f02aa33)
+
+[2025-11-19 02:11:02] Notice: Maintenance script triggered outside window
+Script: diag_linkstate.bin (unsigned)
+MD5: a45e1ba7e93c16f94c05fb52b9d42a72
+SHA1: mismatch (see below)
+SHA1: mismatch (see above)   
+
+[2025-11-19 02:10:44] NETMOD: DNS resolver shift (10.14.7.5 -> 10.14.7.4 -> 10.14.7.5)
+[2025-11-19 02:10:45] NETMOD: Detected 37 DNS retries
+Example:    hb_sync.telemetry-sec.mil
+Example:    hb_sync.telemetry-sec.ml   # fake suspicious TLD
+Example:    hb_sync.telemetry.scc.mil  # misleading
+
+[2025-11-19 02:12:01] GPS: Lock lost (reason: UNKNOWN)
+[2025-11-19 02:12:03] GPS: Lock restored
+
+[2025-11-19 02:12:14] DNS: TXT query size spike
+Query: X5QL====.telem-secure.mil        
+Query: MJWG2YLP.telemetry-sec.mil       
+Query: hb_0211.telemetry-sec.mil        
+
+[2025-11-19 02:14:22] WARNING: Suspicious bursts to:
+- telemetry-sec.net      
+- telemetry.sec-mil.io   
+- opsrelay-sec.mll       
+- telemetry-sec.mil      
+
+[2025-11-19 02:14:24] DNS: Packet drop anomaly (18 percent)
+[2025-11-19 02:14:24] DNS: Query overflow reset
+[2025-11-19 02:14:26] DNS: TXT request timeout
+Query: ZQQQ====.opsrelay.net            
+
+[2025-11-19 02:15:10] CORE: Uplink error: -104
+[2025-11-19 02:15:11] CORE: Uplink recovered
+
+[2025-11-19 02:16:41] SYSTEM: Unexpected record:
+Value: IVZWCYQH.telemetry-sec.mil       
+
+[2025-11-19 02:16:49] SYSTEM: Unexpected record:
+Value: IVZGSYLT.telemetry-sec.mil       
+
+[2025-11-19 02:16:55] SYSTEM: Unexpected record:
+Value: KBXWE2LO.telemetry-sec.mil       
+
+[2025-11-19 02:17:02] SYSTEM: Unexpected record:
+Value: IF2F6YLT.telemetry-sec.mil       
+
+[2025-11-19 02:17:03] SYSTEM: Unexpected record:
+Value: IF2FK===.telemetry-sec.mil       
+
+[2025-11-19 02:17:05] Logging stopped due to buffer rollover
+[0000-00-00 00:00:00]    
